@@ -1,0 +1,10 @@
+#cyElement {
+  width: 100%;
+  height: 100%;
+  background: var(--dark);
+  position: absolute;
+}
+
+#cyElement.light {
+  background: var(--light);
+}
