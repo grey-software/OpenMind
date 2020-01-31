@@ -1,5 +1,7 @@
 import cytoscape from 'cytoscape';
 
+import Complex from './Complex';
+
 class OpenMindService {
   constructor() {
     this.initializeCytoscape();
@@ -19,8 +21,27 @@ class OpenMindService {
      */
     this.cy.mount(el)
   }
+  loadComplex(complexConfig) {
+    /**
+     * Load a complex, given a config
+     */
+    try {
+      this.complex = new Complex(complexConfig);
+    } catch (e) {
+      console.error(`Failed to generate complex: ${e}`)
+    }
+  }
+  uploadOms = async file => {
+    /**
+     * Loads complex given file.
+     */
+    let json = await file.text();
+    this.loadComplex(JSON.parse(json));
+  }
 }
 
 let oms = new OpenMindService();
+
+window.oms = oms;
 
 export default oms;
