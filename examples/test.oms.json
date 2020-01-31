@@ -1,0 +1,28 @@
+{
+  "id": "test",
+  "content": {
+    "596e9ac8-c3ff-4515-a77e-3d965eaf1b14": {
+      "meta": {
+        "is": ["Layout", "StandardLayout"],
+        "id": "596e9ac8-c3ff-4515-a77e-3d965eaf1b14"
+      },
+      "data": {
+        "positions": {
+          "3500b18a-83bf-410a-9d86-91f62e1abe15": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    "3500b18a-83bf-410a-9d86-91f62e1abe15": {
+      "meta": {
+        "is": ["Single"],
+        "id": "3500b18a-83bf-410a-9d86-91f62e1abe15"
+      },
+      "data": {
+        "line": "The first idea."
+      }
+    }
+  }
+}
