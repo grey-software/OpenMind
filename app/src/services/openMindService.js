@@ -33,9 +33,15 @@ class _OpenMindService {
      */
     try {
       this.complex = new Complex(complexConfig);
+      if (this.complex.defaultLayout) {
+        this.loadLayout(this.complex.defaultLayout);
+      }
     } catch (e) {
       console.error(`Failed to generate complex: ${e}`)
     }
+  }
+  loadLayout(layout) {
+    layout.load(this);
   }
   uploadOms = async file => {
     /**
