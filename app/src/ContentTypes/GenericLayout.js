@@ -1,4 +1,4 @@
-import Generic from '../Generic';
+import Generic from './Generic';
 
 class GenericLayout extends Generic {
   constructor (layoutConfig, createNew) {
