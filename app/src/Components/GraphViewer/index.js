@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { observer } from "mobx-react"
+
 import Graph from '../Graph';
 
 import oms from '../../services/openMindService';
@@ -16,10 +18,10 @@ class GraphViewer extends Component {
     return (
       <div>
         <Graph />
-        <UploadOverlay />
+        {!this.oms.complexLoaded && <UploadOverlay />}
       </div>
     )
   }
 }
 
-export default GraphViewer;
+export default observer(GraphViewer);

@@ -1,0 +1,22 @@
+.uploadOverlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  width: 100vw;
+  .uploadBox {
+    position: fixed;
+    width: 60%;
+    height: 30%;
+    background: #eeeeee;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .uploadButton {
+      cursor: pointer;
+    }
+  }
+}
