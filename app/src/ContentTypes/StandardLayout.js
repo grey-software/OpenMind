@@ -31,14 +31,27 @@ class StandardLayout extends GenericLayout {
   load(oms) {
     this.oms = oms;
     
-    for (let id in this.complex.content) {
-      let pos = this.positions[id];
-      if (!pos) continue;
+    let contentList = [];
+
+    for (let id in this.positions) {
+      let content = this.complex.content[id];
       this.cy.add({
         id: id,
-        data: {},
-        position: pos,
-      })
+        data: {id: id, label: content.label},
+        position: this.positions[id],
+      });
+      contentList.push(content);
+    }
+
+    for (let content of contentList) {
+      for (let link of content.links) {
+        this.cy.add({
+          data: {
+            source: content.id,
+            target: link.id,
+          }
+        })
+      }
     }
   }
   unload(oms) {
