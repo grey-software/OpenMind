@@ -40,6 +40,9 @@ class Generic {
     if (!Array.isArray(val)) throw new Error('createdBy must be an array');
     this._config.meta.createdBy = val;
   }
+  get links() {
+    return [];
+  }
   get meta() {
     let meta = {
       is: this.types,
