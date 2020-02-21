@@ -7,6 +7,8 @@ import { decorate, observable, computed } from 'mobx';
 
 import Complex from './Complex';
 
+import defaultStyle from './defaultStyle';
+
 class _OpenMindService {
   complex = null;
   constructor() {
@@ -22,7 +24,7 @@ class _OpenMindService {
     this.cy = new cytoscape({
       wheelSensitivity: 0.1,
     });
-    this.cy.style({});
+    this.cy.style(defaultStyle);
     this.setGraphBindings();
   }
   setGraphBindings() {
