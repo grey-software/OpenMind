@@ -1,10 +1,13 @@
+import React from 'react';
 import Generic from './Generic';
+
+import PageViewer from '../Components/Viewers/PageViewer';
 
 class Page extends Generic {
   constructor (pageConfig, createNew) {
     super(pageConfig, createNew);
   }
-  defaultViewer = null;
+  defaultViewer=PageViewer;
 
   get types() {
     return ['Page'];
@@ -26,9 +29,6 @@ class Page extends Generic {
   
   get label() {
     return this.title;
-  }
-  get links() {
-    
   }
 
   get data() {
