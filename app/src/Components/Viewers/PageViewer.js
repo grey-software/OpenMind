@@ -5,6 +5,10 @@ import EditorJs from 'react-editor-js';
 import './PageViewer.css'
 
 class PageViewer extends Component {
+  editorUpdate = async () => {
+    const savedData = await this.editorInstance.save();
+    console.log(savedData)
+  }
   render() {
     let {title, blocks} = this.props.content;
     let editorData = {
@@ -18,7 +22,7 @@ class PageViewer extends Component {
             <div>{b.data.text}</div>
           ))}
         </div> */}
-        <EditorJs data={editorData} />;
+        <EditorJs instanceRef={instance => this.editorInstance = instance} data={editorData} onChange={this.editorUpdate}/>;
       </div>      
     );
   }
