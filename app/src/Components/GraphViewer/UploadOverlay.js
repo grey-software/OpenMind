@@ -6,7 +6,7 @@ import oms from '../../services/openMindService';
 
 import defaultExample from '../../examples/test.oms.json';
 
-import './styles.scss';
+import './UploadOverlay.scss';
 
 class UploadOverlay extends Component {
   constructor(props) {
