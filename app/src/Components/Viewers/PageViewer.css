@@ -1,0 +1,16 @@
+.pageTitle {
+  max-width: 800px;
+  margin: 1em auto;
+}
+
+.PageViewer {
+  background: white;
+  position: fixed;
+  margin: auto;
+  position: fixed;
+  width: 100em;
+}
+
+.ce-block__content, .ce-toolbar__content {
+  max-width: 800px;
+}

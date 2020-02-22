@@ -1,0 +1,86 @@
+{
+  "id": "test",
+  "content": {
+    "596e9ac8-c3ff-4515-a77e-3d965eaf1b14": {
+      "meta": {
+        "is": ["Layout", "StandardLayout"],
+        "id": "596e9ac8-c3ff-4515-a77e-3d965eaf1b14"
+      },
+      "data": {
+        "positions": {
+          "3500b18a-83bf-410a-9d86-91f62e1abe15": {
+            "x": 300,
+            "y": 300
+          },
+          "24f699ab-d0e4-49c8-8e7a-5056c9fed878": {
+            "x": 700,
+            "y": 400
+          },
+          "247affb8-8859-4b57-b947-61bb8b2f1528": {
+            "x": 900,
+            "y": 600
+          },
+          "4e861be9-99df-4a3e-bbd4-0f090af314a0": {
+            "x": 1200,
+            "y": 600
+          }
+        }
+      }
+    },
+    "4e861be9-99df-4a3e-bbd4-0f090af314a0": {
+      "meta": {
+        "is": ["Layout", "StandardLayout"],
+        "id": "4e861be9-99df-4a3e-bbd4-0f090af314a0"
+      },
+      "data": {
+        "positions": {
+          "596e9ac8-c3ff-4515-a77e-3d965eaf1b14": {
+            "x": 500,
+            "y": 500
+          }
+        }
+      }
+    },
+    "3500b18a-83bf-410a-9d86-91f62e1abe15": {
+      "meta": {
+        "is": ["Single"],
+        "id": "3500b18a-83bf-410a-9d86-91f62e1abe15"
+      },
+      "data": {
+        "line": "The first idea."
+      }
+    },
+    "24f699ab-d0e4-49c8-8e7a-5056c9fed878": {
+      "meta": {
+        "is": ["Single"],
+        "id": "24f699ab-d0e4-49c8-8e7a-5056c9fed878"
+      },
+      "data": {
+        "line": "A [linked](3500b18a-83bf-410a-9d86-91f62e1abe15) idea."
+      }
+    },
+    "247affb8-8859-4b57-b947-61bb8b2f1528": {
+      "meta": {
+        "is": ["Page"],
+        "id": "247affb8-8859-4b57-b947-61bb8b2f1528"
+      },
+      "data": {
+        "title": "Welcome to OpenMind!",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "data": {
+              "text": "A new tool to organize your thoughts!"
+            }
+          },
+          {
+            "type": "link",
+            "data": {
+              "id": "4e861be9-99df-4a3e-bbd4-0f090af314a0"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

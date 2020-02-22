@@ -42,5 +42,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@editorjs/editorjs": "^2.16.1",
+    "@editorjs/paragraph": "^2.6.1",
+    "react-editor-js": "^1.4.2"
   }
 }

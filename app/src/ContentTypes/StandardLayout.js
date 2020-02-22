@@ -1,6 +1,9 @@
+import _ from 'lodash';
+
 import GenericLayout from './GenericLayout';
 
 class StandardLayout extends GenericLayout {
+  subscriptions = {}
   constructor (layoutConfig, createNew) {
     super(layoutConfig, createNew);
   }
@@ -19,6 +22,9 @@ class StandardLayout extends GenericLayout {
       positions: this.positions,
     };
   }
+  get label() {
+    return `Portal to ${this.id.split('-')[0]}`;
+  }
   get cy() {
     return this.oms.cy;
   }
@@ -28,11 +34,11 @@ class StandardLayout extends GenericLayout {
   mutate({mutation}) {
     console.log(mutation);
   }
-  load(oms) {
+  load = (oms) => {
     this.oms = oms;
     
     let contentList = [];
-
+    
     for (let id in this.positions) {
       let content = this.complex.content[id];
       this.cy.add({
@@ -53,8 +59,25 @@ class StandardLayout extends GenericLayout {
         })
       }
     }
+    this.subscriptions.nodeTap = this.oms.nodeTap.subscribe(e => {
+      let id = e.target.id();
+      this.oms.clickContent(id);
+    });
+    this.subscriptions.nodesMove = this.oms.nodesMove.subscribe(e => {
+      let positions = {};
+      this.cy.nodes().forEach(n => {
+        positions[n.id()] = n.position();
+      });
+      positions = _.cloneDeep(positions);
+      this.positions = positions;
+    })
   }
   unload(oms) {
+    this.cy.elements().remove();
+    for (let subscriptionId of Object.keys(this.subscriptions)) {
+      this.subscriptions[subscriptionId].unsubscribe();
+      delete this.subscriptions[subscriptionId];
+    }
     this.oms = null;
   }
 }

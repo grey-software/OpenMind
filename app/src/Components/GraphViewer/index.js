@@ -8,6 +8,7 @@ import oms from '../../services/openMindService';
 
 // Overlays
 import UploadOverlay from './UploadOverlay';
+import ControlsOverlay from './ControlsOverlay';
 
 class GraphViewer extends Component {
   constructor(props) {
@@ -19,6 +20,14 @@ class GraphViewer extends Component {
       <div>
         <Graph />
         {!this.oms.complexLoaded && <UploadOverlay />}
+        {this.oms.loadedContent.map(c => {
+          let Viewer = c.defaultViewer
+          if (!Viewer) return;
+          return (
+            <Viewer content={c} />
+          )
+        })}
+        <ControlsOverlay />
       </div>
     )
   }

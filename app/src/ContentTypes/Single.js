@@ -39,6 +39,16 @@ class Single extends Generic {
       line: this.line,
     }
   }
+  static fromLine(line) {
+    return new Single({
+      meta: {
+        is: ['Single'],
+      },
+      data: {
+        line,
+      },
+    }, true);
+  }
 }
 
 export default Single;

@@ -11,6 +11,8 @@ import defaultStyle from './defaultStyle';
 
 class _OpenMindService {
   complex = null;
+  loadedContent = [];
+  activeLayout = null;
   constructor() {
     this.initializeCytoscape();
   }
@@ -50,7 +52,6 @@ class _OpenMindService {
     this.backgroundContextTap = new Subject();
 
     // Bindings to cytoscape
-
     this.cy.on('tap', 'node', e => this.nodeTap.next(e));
     this.cy.on('tap', 'edge', e => this.edgeTap.next(e));
     this.cy.on('tap', e => {
@@ -90,20 +91,53 @@ class _OpenMindService {
     }
   }
   loadLayout(layout) {
+    if (this.activeLayout) this.activeLayout.unload();
     layout.load(this);
+    this.activeLayout = layout;
   }
-  uploadOms = async file => {
+  loadContent(content) {
+    if (this.loadedContent.indexOf(content) !== -1) return;
+    this.loadedContent.push(content);
+  }
+  clickContent(contentId) {
+    let content = this.complex.content[contentId];
+    if (!content) return;
+    if (content.isLayout) {
+      this.loadLayout(content);
+    } else {
+      this.loadContent(content);
+    }
+  }
+  uploadOmsFile = async file => {
     /**
      * Loads complex given file.
      */
     let json = await file.text();
     this.loadComplex(JSON.parse(json));
   }
+  uploadOmsJson = async json => {
+    /**
+     * Loads complex given file.
+     */
+    if (typeof(json) !== 'object') json = JSON.parse(json)
+    this.loadComplex(json);
+  }
+  downloadOmsJson = async () => {
+    let json = this.complex.json;
+    let blob = new Blob([json], {type: "application/json"});
+    let url = URL.createObjectURL(blob);
+
+    let dlNode = document.createElement('a');
+    dlNode.setAttribute('href', url);
+    dlNode.setAttribute('download', `example.oms.json`);
+    dlNode.click();
+  }
 }
 
 const OpenMindService = decorate(_OpenMindService, {
   complex: observable,
   complexLoaded: computed,
+  loadedContent: observable,
 });
 
 let oms = new OpenMindService();
