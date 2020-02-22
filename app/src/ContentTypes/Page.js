@@ -31,6 +31,18 @@ class Page extends Generic {
     return this.title;
   }
 
+  get links() {
+    let links = [];
+    for (let block of this.blocks) {
+      if (block.type == 'link') {
+        links.push({
+          id: block.data.id,
+        })
+      }
+    }
+    return links;
+  }
+
   get data() {
     return {
       title: this.title,
