@@ -5,7 +5,7 @@ class Page extends Generic {
     super(pageConfig, createNew);
   }
   defaultViewer = null;
-  
+
   get types() {
     return ['Page'];
   }
@@ -25,7 +25,7 @@ class Page extends Generic {
   }
   
   get label() {
-    
+    return this.title;
   }
   get links() {
     
