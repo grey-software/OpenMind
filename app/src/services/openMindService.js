@@ -122,6 +122,16 @@ class _OpenMindService {
     if (typeof(json) !== 'object') json = JSON.parse(json)
     this.loadComplex(json);
   }
+  downloadOmsJson = async () => {
+    let json = this.complex.json;
+    let blob = new Blob([json], {type: "application/json"});
+    let url = URL.createObjectURL(blob);
+
+    let dlNode = document.createElement('a');
+    dlNode.setAttribute('href', url);
+    dlNode.setAttribute('download', `example.oms.json`);
+    dlNode.click();
+  }
 }
 
 const OpenMindService = decorate(_OpenMindService, {

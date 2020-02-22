@@ -22,6 +22,10 @@ class Complex {
     }
     return c;
   }
+  addContent(content) {
+    this._content[content.id] = content;
+    this._complex.content[content.id] = content.drop;
+  }
   get defaultLayout() {
     /**
      * Gets the default layout from content.
@@ -34,6 +38,9 @@ class Complex {
         return content[id];
       }
     }
+  }
+  get json() {
+    return JSON.stringify(this._complex);
   }
 }
 
