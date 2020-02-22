@@ -19,6 +19,13 @@ class GraphViewer extends Component {
       <div>
         <Graph />
         {!this.oms.complexLoaded && <UploadOverlay />}
+        {this.oms.loadedContent.map(c => {
+          let Viewer = c.defaultViewer
+          if (!Viewer) return;
+          return (
+            <Viewer content={c} />
+          )
+        })}
       </div>
     )
   }

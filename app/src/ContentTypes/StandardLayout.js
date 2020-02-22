@@ -28,11 +28,11 @@ class StandardLayout extends GenericLayout {
   mutate({mutation}) {
     console.log(mutation);
   }
-  load(oms) {
+  load = (oms) => {
     this.oms = oms;
     
     let contentList = [];
-
+    
     for (let id in this.positions) {
       let content = this.complex.content[id];
       this.cy.add({
@@ -53,6 +53,10 @@ class StandardLayout extends GenericLayout {
         })
       }
     }
+    this.oms.nodeTap.subscribe(e => {
+      let id = e.target.id();
+      this.oms.loadContent(id);
+    })
   }
   unload(oms) {
     this.oms = null;

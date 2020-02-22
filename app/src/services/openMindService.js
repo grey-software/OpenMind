@@ -11,6 +11,7 @@ import defaultStyle from './defaultStyle';
 
 class _OpenMindService {
   complex = null;
+  loadedContent = [];
   constructor() {
     this.initializeCytoscape();
   }
@@ -50,7 +51,6 @@ class _OpenMindService {
     this.backgroundContextTap = new Subject();
 
     // Bindings to cytoscape
-
     this.cy.on('tap', 'node', e => this.nodeTap.next(e));
     this.cy.on('tap', 'edge', e => this.edgeTap.next(e));
     this.cy.on('tap', e => {
@@ -92,6 +92,12 @@ class _OpenMindService {
   loadLayout(layout) {
     layout.load(this);
   }
+  loadContent(contentId) {
+    let content = this.complex.content[contentId];
+    if (!content) return;
+    if (this.loadedContent.indexOf(content) !== -1) return;
+    this.loadedContent.push(content);
+  }
   uploadOmsFile = async file => {
     /**
      * Loads complex given file.
@@ -111,6 +117,7 @@ class _OpenMindService {
 const OpenMindService = decorate(_OpenMindService, {
   complex: observable,
   complexLoaded: computed,
+  loadedContent: observable,
 });
 
 let oms = new OpenMindService();
