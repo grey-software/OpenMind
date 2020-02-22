@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import GenericLayout from './GenericLayout';
 
 class StandardLayout extends GenericLayout {
@@ -60,6 +62,14 @@ class StandardLayout extends GenericLayout {
     this.subscriptions.nodeTap = this.oms.nodeTap.subscribe(e => {
       let id = e.target.id();
       this.oms.clickContent(id);
+    });
+    this.subscriptions.nodesMove = this.oms.nodesMove.subscribe(e => {
+      let positions = {};
+      this.cy.nodes().forEach(n => {
+        positions[n.id()] = n.position();
+      });
+      positions = _.cloneDeep(positions);
+      this.positions = positions;
     })
   }
   unload(oms) {
