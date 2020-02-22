@@ -8,6 +8,7 @@ import oms from '../../services/openMindService';
 
 // Overlays
 import UploadOverlay from './UploadOverlay';
+import ControlsOverlay from './ControlsOverlay';
 
 class GraphViewer extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class GraphViewer extends Component {
             <Viewer content={c} />
           )
         })}
+        <ControlsOverlay />
       </div>
     )
   }
