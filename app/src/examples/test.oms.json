@@ -19,6 +19,24 @@
           "247affb8-8859-4b57-b947-61bb8b2f1528": {
             "x": 900,
             "y": 600
+          },
+          "4e861be9-99df-4a3e-bbd4-0f090af314a0": {
+            "x": 200,
+            "y": 200
+          }
+        }
+      }
+    },
+    "4e861be9-99df-4a3e-bbd4-0f090af314a0": {
+      "meta": {
+        "is": ["Layout", "StandardLayout"],
+        "id": "4e861be9-99df-4a3e-bbd4-0f090af314a0"
+      },
+      "data": {
+        "positions": {
+          "596e9ac8-c3ff-4515-a77e-3d965eaf1b14": {
+            "x": 500,
+            "y": 500
           }
         }
       }
