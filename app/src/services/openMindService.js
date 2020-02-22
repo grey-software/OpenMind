@@ -12,6 +12,7 @@ import defaultStyle from './defaultStyle';
 class _OpenMindService {
   complex = null;
   loadedContent = [];
+  activeLayout = null;
   constructor() {
     this.initializeCytoscape();
   }
@@ -90,13 +91,22 @@ class _OpenMindService {
     }
   }
   loadLayout(layout) {
+    if (this.activeLayout) this.activeLayout.unload();
     layout.load(this);
+    this.activeLayout = layout;
   }
-  loadContent(contentId) {
-    let content = this.complex.content[contentId];
-    if (!content) return;
+  loadContent(content) {
     if (this.loadedContent.indexOf(content) !== -1) return;
     this.loadedContent.push(content);
+  }
+  clickContent(contentId) {
+    let content = this.complex.content[contentId];
+    if (!content) return;
+    if (content.isLayout) {
+      this.loadLayout(content);
+    } else {
+      this.loadContent(content);
+    }
   }
   uploadOmsFile = async file => {
     /**

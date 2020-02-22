@@ -1,6 +1,7 @@
 import GenericLayout from './GenericLayout';
 
 class StandardLayout extends GenericLayout {
+  subscriptions = {}
   constructor (layoutConfig, createNew) {
     super(layoutConfig, createNew);
   }
@@ -18,6 +19,9 @@ class StandardLayout extends GenericLayout {
     return {
       positions: this.positions,
     };
+  }
+  get label() {
+    return `Portal to ${this.id.split('-')[0]}`;
   }
   get cy() {
     return this.oms.cy;
@@ -53,12 +57,17 @@ class StandardLayout extends GenericLayout {
         })
       }
     }
-    this.oms.nodeTap.subscribe(e => {
+    this.subscriptions.nodeTap = this.oms.nodeTap.subscribe(e => {
       let id = e.target.id();
-      this.oms.loadContent(id);
+      this.oms.clickContent(id);
     })
   }
   unload(oms) {
+    this.cy.elements().remove();
+    for (let subscriptionId of Object.keys(this.subscriptions)) {
+      this.subscriptions[subscriptionId].unsubscribe();
+      delete this.subscriptions[subscriptionId];
+    }
     this.oms = null;
   }
 }
