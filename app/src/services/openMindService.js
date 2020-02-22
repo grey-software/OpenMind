@@ -92,12 +92,19 @@ class _OpenMindService {
   loadLayout(layout) {
     layout.load(this);
   }
-  uploadOms = async file => {
+  uploadOmsFile = async file => {
     /**
      * Loads complex given file.
      */
     let json = await file.text();
     this.loadComplex(JSON.parse(json));
+  }
+  uploadOmsJson = async json => {
+    /**
+     * Loads complex given file.
+     */
+    if (typeof(json) !== 'object') json = JSON.parse(json)
+    this.loadComplex(json);
   }
 }
 
