@@ -82,7 +82,11 @@ class _OpenMindService {
      * Load a complex, given a config
      */
     try {
-      this.complex = new Complex(complexConfig);
+      this.complexUpdate = new Subject();
+      this.complexUpdate.subscribe(() => {
+        this.saveToLocalStorage();
+      })
+      this.complex = new Complex(complexConfig, this);
       if (this.complex.defaultLayout) {
         this.loadLayout(this.complex.defaultLayout);
       }
@@ -115,6 +119,7 @@ class _OpenMindService {
     let json = await file.text();
     this.loadComplex(JSON.parse(json));
   }
+
   uploadOmsJson = async json => {
     /**
      * Loads complex given file.
@@ -123,6 +128,9 @@ class _OpenMindService {
     this.loadComplex(json);
   }
   downloadOmsJson = async () => {
+    /**
+     * Downloads OMS file.
+     */
     let json = this.complex.json;
     let blob = new Blob([json], {type: "application/json"});
     let url = URL.createObjectURL(blob);
@@ -131,6 +139,21 @@ class _OpenMindService {
     dlNode.setAttribute('href', url);
     dlNode.setAttribute('download', `example.oms.json`);
     dlNode.click();
+  }
+  
+  saveToLocalStorage = async () => {
+    let json = this.complex.json;
+    localStorage.setItem('saved', json);
+    console.log('Saved state to localStorage')
+  }
+  saveExistsInLocalStorage = () => {
+    return !!localStorage.getItem('saved');
+  }
+  retriveSaveFromLocalStorage = async () => {
+    let json = localStorage.getItem('saved');
+    if (json) {
+      this.loadComplex(JSON.parse(json));
+    }
   }
 }
 

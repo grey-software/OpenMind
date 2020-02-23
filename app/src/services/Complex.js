@@ -2,13 +2,31 @@ import ValidateComplex from './ValidateComplex';
 
 import { InitializeContent } from '../ContentTypes';
 
+const proxyConfig = setterCallback => {
+  let _proxyConfig = {
+    get(target, key) {
+      if (typeof target[key] === 'object' && target[key] !== null) {
+        return new Proxy(target[key], _proxyConfig)
+      } else {
+        return target[key];
+      }
+    },
+    set(obj, prop, value) {
+      setterCallback(...arguments)
+      return Reflect.set(...arguments)
+    }
+  }
+  return _proxyConfig;
+}
+
 /**
  * Represents an OpenMind file
  */
 class Complex {
-  constructor(config) {
+  constructor(config, oms) {
+    this.oms = oms;
     ValidateComplex.validateOrThrowError(config)
-    this._complex = config;
+    this._complex = new Proxy(config, proxyConfig(() => this.oms.complexUpdate.next()));
     this._content = {};
     for (let id in this._complex.content) {
       let content = this._complex.content[id];
