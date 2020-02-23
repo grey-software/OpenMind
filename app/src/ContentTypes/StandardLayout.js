@@ -44,7 +44,7 @@ class StandardLayout extends GenericLayout {
       this.cy.add({
         id: id,
         data: {id: id, label: content.label},
-        position: this.positions[id],
+        position: _.cloneDeep(this.positions[id]),
       });
       contentList.push(content);
     }
