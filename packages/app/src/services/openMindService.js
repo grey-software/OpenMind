@@ -13,6 +13,7 @@ class _OpenMindService {
   complex = null;
   loadedContent = [];
   activeLayout = null;
+  draftMessage = '';
   constructor() {
     this.initializeCytoscape();
   }
@@ -161,6 +162,7 @@ const OpenMindService = decorate(_OpenMindService, {
   complex: observable,
   complexLoaded: computed,
   loadedContent: observable,
+  draftMessage: observable,
 });
 
 let oms = new OpenMindService();

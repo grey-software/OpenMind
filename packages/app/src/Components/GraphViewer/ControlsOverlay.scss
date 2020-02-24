@@ -3,4 +3,13 @@
   align-items: center;
   justify-content: center;
   position: fixed;
+  .omniInput {
+    border: none;
+    border-radius: 100px;
+    background-color: #ddd;
+    font-size: 1.25em;
+    padding: 1em;
+    outline: none;
+    width: 60vw;
+  }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
 import oms from '../../services/openMindService';
 
@@ -11,13 +12,11 @@ class ControlsOverlay extends Component {
     super(props)
     this.oms = oms;
   }
-  state = {
-    message: '',
-  }
-  setMessage = e => this.setState({message: e.target.value});
+  setMessage = e => oms.draftMessage = e.target.value
   createMessage = () => {
-    let s = Single.fromLine(this.state.message);
+    let s = Single.fromLine(oms.draftMessage);
     this.oms.complex.addContent(s);
+    oms.draftMessage = '';
   }
   downloadOMS = () => {
     this.oms.downloadOmsJson();
@@ -26,7 +25,7 @@ class ControlsOverlay extends Component {
     return (
       <div className="controlsOverlay">
         <div>
-          <input className="" onChange={this.setMessage} value={this.state.message} />
+          <input className="omniInput" onChange={this.setMessage} value={oms.draftMessage} />
         </div>
         <div>
           <button onClick={this.createMessage}>
@@ -48,4 +47,4 @@ class ControlsOverlay extends Component {
   }
 }
 
-export default ControlsOverlay;
+export default observer(ControlsOverlay);

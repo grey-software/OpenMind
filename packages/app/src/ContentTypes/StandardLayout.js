@@ -62,6 +62,7 @@ class StandardLayout extends GenericLayout {
     this.subscriptions.nodeTap = this.oms.nodeTap.subscribe(e => {
       let id = e.target.id();
       this.oms.clickContent(id);
+      this.oms.draftMessage = this.oms.draftMessage + `[](${id})`;
     });
     this.subscriptions.nodesMove = this.oms.nodesMove.subscribe(e => {
       let positions = {};
