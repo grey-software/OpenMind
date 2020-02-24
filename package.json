@@ -1,0 +1,19 @@
+{
+  "name": "openmind",
+  "version": "0.0.1",
+  "description": "We're creating an open standard for organizing learning and research notes using mind maps.",
+  "scripts": {
+    "setup": "npm ci --prefix packages/*",
+    "docs": "npm run dev --prefix packages/docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grey-software/OpenMind.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grey-software/OpenMind/issues"
+  },
+  "homepage": "https://github.com/grey-software/OpenMind#readme"
+}
