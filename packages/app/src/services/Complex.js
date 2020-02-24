@@ -1,6 +1,7 @@
 import ValidateComplex from './ValidateComplex';
 
 import { InitializeContent } from '../ContentTypes';
+import StandardLayout from '../ContentTypes/StandardLayout';
 
 const proxyConfig = setterCallback => {
   let _proxyConfig = {
@@ -43,6 +44,11 @@ class Complex {
   addContent(content) {
     this._content[content.id] = content;
     this._complex.content[content.id] = content.drop;
+  }
+  createNewStandardLayout = async () => {
+    let s = StandardLayout.fromScratch();
+    this.addContent(s);
+    this.oms.loadLayout(s);
   }
   get defaultLayout() {
     /**
