@@ -12,6 +12,9 @@ class ControlsOverlay extends Component {
     super(props)
     this.oms = oms;
   }
+  state = {
+    showUnpositionedPrompt: false,
+  }
   setMessage = e => oms.draftMessage = e.target.value
   createMessage = () => {
     let s = Single.fromLine(oms.draftMessage);
@@ -26,26 +29,50 @@ class ControlsOverlay extends Component {
   downloadOMS = () => {
     this.oms.downloadOmsJson();
   }
+  newStandardLayout = () => {
+    this.oms.complex.createNewStandardLayout({switch:true});
+  }
+  contentClick = content => {
+    this.setState({showUnpositionedPrompt: false});
+    if (!this.oms.activeLayout) return;
+    this.oms.activeLayout.positionContent(content);
+  }
   render() {
+    let unpositionedContent = {};
+    if (this.oms.activeLayout) {
+      unpositionedContent = this.oms.activeLayout.unpositionedContent
+    }
+    let unpositionedCount = Object.keys(unpositionedContent).length;
     return (
       <div className="controlsOverlay">
-        <div className="omnibox">
-          <input className="omniInput" onChange={this.setMessage} value={oms.draftMessage} onKeyPress={this.onOmniKeyPress}/>
-          <button onClick={this.createMessage}>
-            +
-          </button>
-        </div>
-        <div>
-        </div>
-        <div>
-          <button>
-            Create post
-          </button>
-        </div>
-        <div>
-          <button onClick={this.downloadOMS}>
-            Download
-          </button>
+        {this.state.showUnpositionedPrompt && (
+          <div className="unpositionedPrompt">
+            {Object.keys(unpositionedContent).map(k => {
+              let content = unpositionedContent[k];
+              return (
+                <div className="row" onClick={()=>this.contentClick(content)}>{content.label}</div>
+              )
+            })}
+          </div>
+        )}
+        <div className="bottomDock">
+          <div className="omnibox">
+            <input className="omniInput" onChange={this.setMessage} value={oms.draftMessage} onKeyPress={this.onOmniKeyPress}/>
+            <button onClick={this.createMessage}>
+              +
+            </button>
+            <button onClick={this.newStandardLayout}>
+              P
+            </button>
+            {/* <button onClick={this.downloadOMS}>
+              D
+            </button> */}
+          </div>
+          {unpositionedCount > 0 && (
+            <div className="contentImport" onClick={()=>this.setState({showUnpositionedPrompt: true})}>
+              +{unpositionedCount}
+            </div>
+          )}
         </div>
       </div>
     );

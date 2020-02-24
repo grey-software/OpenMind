@@ -27,7 +27,7 @@ class GraphViewer extends Component {
             <Viewer content={c} />
           )
         })}
-        <ControlsOverlay />
+        {this.oms.complexLoaded && <ControlsOverlay />}
       </div>
     )
   }

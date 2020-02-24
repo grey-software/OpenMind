@@ -3,24 +3,54 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  .omnibox {
+  .unpositionedPrompt {
+    background: #cccccc88;
+    backdrop-filter: blur(2px);
+    padding: 1em 0;
+    border-radius: 20px;
+    margin: 1em;
+    .row {
+      margin-bottom: 5px;
+      padding: 0 1em;
+      cursor: pointer;
+      &:hover {
+        background: #aaaaaa;
+      }
+    }
+  }
+  .bottomDock {
+    position: fixed;
     display: flex;
-    border-radius: 100px;
-    background-color: #ddd;
-    .omniInput {
+    bottom: 0;
+    width: 100vw;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    margin-bottom: 1em;
+    align-items: center;
+    .contentImport {
+      margin: 0 2em;
+    }
+    .omnibox {
+      display: flex;
       border-radius: 100px;
       background-color: #ddd;
-      border: none;
-      font-size: 1.25em;
-      padding: 1em;
-      outline: none;
-      width: 60vw;
-    }
-    button {
-      background: none;
-      border: none;
-      font-size: 2em;
-      margin: 0 0.5em;
+      .omniInput {
+        border-radius: 100px;
+        background-color: #ddd;
+        border: none;
+        font-size: 1.25em;
+        padding: 1em;
+        outline: none;
+        width: 60vw;
+      }
+      button {
+        background: none;
+        border: none;
+        font-size: 2em;
+        margin: 0 0.5em;
+        cursor: pointer;
+      }
     }
   }
 }
