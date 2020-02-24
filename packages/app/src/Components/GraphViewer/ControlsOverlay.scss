@@ -3,13 +3,24 @@
   align-items: center;
   justify-content: center;
   position: fixed;
-  .omniInput {
-    border: none;
+  .omnibox {
+    display: flex;
     border-radius: 100px;
     background-color: #ddd;
-    font-size: 1.25em;
-    padding: 1em;
-    outline: none;
-    width: 60vw;
+    .omniInput {
+      border-radius: 100px;
+      background-color: #ddd;
+      border: none;
+      font-size: 1.25em;
+      padding: 1em;
+      outline: none;
+      width: 60vw;
+    }
+    button {
+      background: none;
+      border: none;
+      font-size: 2em;
+      margin: 0 0.5em;
+    }
   }
 }

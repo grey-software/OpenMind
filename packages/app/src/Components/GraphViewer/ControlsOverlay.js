@@ -18,19 +18,24 @@ class ControlsOverlay extends Component {
     this.oms.complex.addContent(s);
     oms.draftMessage = '';
   }
+  onOmniKeyPress = e => {
+    if (e.key === 'Enter') {
+      this.createMessage();
+    }
+  }
   downloadOMS = () => {
     this.oms.downloadOmsJson();
   }
   render() {
     return (
       <div className="controlsOverlay">
-        <div>
-          <input className="omniInput" onChange={this.setMessage} value={oms.draftMessage} />
+        <div className="omnibox">
+          <input className="omniInput" onChange={this.setMessage} value={oms.draftMessage} onKeyPress={this.onOmniKeyPress}/>
+          <button onClick={this.createMessage}>
+            +
+          </button>
         </div>
         <div>
-          <button onClick={this.createMessage}>
-            Create message
-          </button>
         </div>
         <div>
           <button>
