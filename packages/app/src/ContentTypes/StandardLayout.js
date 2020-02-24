@@ -23,7 +23,7 @@ class StandardLayout extends GenericLayout {
     };
   }
   get label() {
-    return `Portal to ${this.id.split('-')[0]}`;
+    return `🌀 ${this.id.split('-')[0]}`;
   }
   get cy() {
     return this.oms.cy;
@@ -34,9 +34,8 @@ class StandardLayout extends GenericLayout {
   mutate({mutation}) {
     console.log(mutation);
   }
-  load = (oms) => {
-    this.oms = oms;
-    
+  refreshGraph = () => {
+    this.cy.elements().remove();
     let contentList = [];
     
     for (let id in this.positions) {
@@ -59,9 +58,16 @@ class StandardLayout extends GenericLayout {
         })
       }
     }
+  }
+  load = (oms) => {
+    this.oms = oms;
+    
+    this.refreshGraph();
+    
     this.subscriptions.nodeTap = this.oms.nodeTap.subscribe(e => {
       let id = e.target.id();
       this.oms.clickContent(id);
+      if (!this.oms) return;
       this.oms.draftMessage = this.oms.draftMessage + `[](${id})`;
     });
     this.subscriptions.nodesMove = this.oms.nodesMove.subscribe(e => {
@@ -73,6 +79,12 @@ class StandardLayout extends GenericLayout {
       this.positions = positions;
     })
   }
+  positionContent = content => {
+    if (this.positions[content.id]) return;
+    let position = {x: 0, y: 0};
+    this.positions[content.id] = position;
+    this.refreshGraph();
+  }
   unload(oms) {
     this.cy.elements().remove();
     for (let subscriptionId of Object.keys(this.subscriptions)) {
@@ -80,6 +92,25 @@ class StandardLayout extends GenericLayout {
       delete this.subscriptions[subscriptionId];
     }
     this.oms = null;
+  }
+  get unpositionedContent() {
+    let unp = {};
+    for (let id in this.complex.content) {
+      if (!this.positions[id]) {
+        unp[id] = this.complex.content[id];
+      }
+    }
+    return unp;
+  }
+  static fromScratch() {
+    return new StandardLayout({
+      meta: {
+        is: ['Layout', 'StandardLayout'],
+      },
+      data: {
+        positions: {},
+      },
+    }, true);
   }
 }
 
