@@ -84,7 +84,7 @@ class _OpenMindService {
     try {
       this.complexUpdate = new Subject();
       this.complexUpdate.subscribe(() => {
-        this.saveToLocalStorage();
+        setTimeout(()=>this.saveToLocalStorage(), 5); //TODO: Nasty fix for order of operations. Make elegant later.
       })
       this.complex = new Complex(complexConfig, this);
       if (this.complex.defaultLayout) {
