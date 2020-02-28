@@ -3,5 +3,20 @@ home: true
 heroText: Open Mind
 tagline: We're creating an open standard for organizing learning and research notes using mind maps.
 footer: MIT Licensed
+sidebar: auto
 --- 
+
+# Use Cases
+
+## [Research](/use-cases/research)
+TODO: Write overview for Research Use Case
+
+
+## [Language Learning](/use-cases/language-learning)
+
+## [Brainstorming](/use-cases/brainstorming)
+
+::: tip Excerpt From Claudio Aros. “The Magic of Mental Diagrams.” 
+“Students around the world are used to taking notes in a monochromatic and linear manner. Taking notes should be a more personal task where associations, colors, opinions, and thoughts appear.”
+:::
 
