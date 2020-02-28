@@ -77,7 +77,20 @@ class StandardLayout extends GenericLayout {
       });
       positions = _.cloneDeep(positions);
       this.positions = positions;
+    });
+    this.subscriptions.graphKeydownObserver = this.oms.graphKeydownObserver.subscribe(e => {
+      if (e.key === 'Delete') {
+        this.removeSelectedNodes();
+      }
     })
+  }
+  removeSelectedNodes = () => {
+    let selectedElements = this.cy.$(':selected');
+    let selectedIds = selectedElements.map(e => e.id());
+    for (let id of selectedIds) {
+      delete this.positions[id];
+    }
+    this.refreshGraph();
   }
   positionContent = content => {
     if (this.positions[content.id]) return;

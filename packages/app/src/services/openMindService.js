@@ -1,6 +1,6 @@
 import cytoscape from 'cytoscape';
 
-import { Subject, ReplaySubject } from 'rxjs';
+import { Subject, ReplaySubject, fromEvent, iif, of } from 'rxjs';
 import { delay, throttleTime, filter, timeInterval, map, mergeMap } from 'rxjs/operators';
 
 import { decorate, observable, computed } from 'mobx';
@@ -71,6 +71,11 @@ class _OpenMindService {
     this.nodeMouseout.subscribe(e => {
       this.cy.container().style.cursor = '';
     });
+
+    this.graphKeydownObserver = fromEvent(window, 'keydown').pipe(mergeMap(e => iif(()=>this.isGraphActive, of(e))));
+  }
+  get isGraphActive() {
+    return (document.activeElement === document.body);
   }
   mountCyto(el) {
     /**

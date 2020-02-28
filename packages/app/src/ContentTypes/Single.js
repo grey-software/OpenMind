@@ -1,9 +1,12 @@
 import Generic from './Generic';
 
+import SingleViewer from '../Components/Viewers/SingleViewer';
+
 class Single extends Generic {
   constructor (singleConfig, createNew) {
     super(singleConfig, createNew);
   }
+  defaultViewer = SingleViewer;
   
   get types() {
     return ['Single'];
