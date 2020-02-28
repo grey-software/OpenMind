@@ -4,7 +4,8 @@
   "description": "We're creating an open standard for organizing learning and research notes using mind maps.",
   "scripts": {
     "setup": "npm ci --prefix packages/*",
-    "docs": "npm run dev --prefix packages/docs"
+    "docs": "npm run dev --prefix packages/docs",
+    "build-docs": "npm run build --prefix packages/docs"
   },
   "repository": {
     "type": "git",
