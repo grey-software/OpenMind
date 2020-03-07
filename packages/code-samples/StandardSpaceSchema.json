@@ -1,43 +1,42 @@
 {
-    "$id": "https://docs.open-mind/schemas/StandardSpace",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "StandardSpace",
-    "type": "object",
-    "allOf": [
-      {"$ref": "#/GenericSpace"}
-    ],
-    "properties": {
-      "meta": {
-        "type": "object",
-        "properties": {
-          "is": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "contains": {
-              "enum": ["StandardSpace"]
-            },
-            "minItems": 1,
-            "uniqueItems": true
-          }
-        }        
-      },
-      "data": {
-        "type": "object",
-        "properties": {
-          "content": {
-            "type": "object",
-            "patternProperties": {
-              ".+": {
-                "type": "object",
-                "properties": {
-                  "position": {
-                    "type": "object",
-                    "properties": {
-                      "x": {"type": "number"},
-                      "y": {"type": "number"}
-                    }
+  "$id": "https://docs.open-mind/schemas/StandardSpace",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StandardSpace",
+  "type": "object",
+  "allOf": [
+    {"$ref": "#/GenericSpace"}
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "is": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "enum": ["StandardSpace"]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }        
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "object",
+          "patternProperties": {
+            ".+": {
+              "type": "object",
+              "properties": {
+                "position": {
+                  "type": "object",
+                  "properties": {
+                    "x": {"type": "number"},
+                    "y": {"type": "number"}
                   }
                 }
               }
@@ -47,3 +46,4 @@
       }
     }
   }
+}

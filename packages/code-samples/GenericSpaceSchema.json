@@ -1,27 +1,27 @@
 {
-    "$id": "https://docs.open-mind/schemas/GenericSpace",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "GenericSpace",
-    "type": "object",
-    "allOf": [
-      {"$ref": "#/GenericEntity"}
-    ],
-    "properties": {
-      "meta": {
-        "type": "object",
-        "properties": {
-          "is": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "contains": {
-              "enum": ["Space"]
-            },
-            "minItems": 1,
-            "uniqueItems": true
-          }
-        }        
-      }
+  "$id": "https://docs.open-mind/schemas/GenericSpace",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GenericSpace",
+  "type": "object",
+  "allOf": [
+    {"$ref": "#/GenericEntity"}
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "is": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "enum": ["Space"]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }        
     }
   }
+}
