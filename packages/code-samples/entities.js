@@ -33,6 +33,9 @@ class GenericSpace extends GenericEntity {
   constructor(config) {
     // validate config against GenericSpaceSchema
   }
+  get type() {
+    return ['Space'];
+  }
   load() {}
   unload() {}
 }
@@ -40,6 +43,9 @@ class GenericSpace extends GenericEntity {
 class StandardSpace extends GenericSpace {
   constructor() {
     // validate config against StandardSpaceSchema
+  }
+  get type() {
+    return ['Space', 'StandardSpace'];
   }
   get content() {
     // return all content belonging to this space, coupled with the metadata
@@ -64,6 +70,9 @@ class VideoYouTube extends GenericEntity {
   constructor() {
     // validate config against VideoYouTubeSchema
   }
+  get type() {
+    return ['Video', 'VideoYouTube'];
+  }
   get videoId() {}
   set videoId(_videoId) {}
 
@@ -75,10 +84,14 @@ class VideoYouTube extends GenericEntity {
 }
 
 class URLEntity extends GenericEntity {
+  // URL is reserved
   constructor() {
     // validate config against URLSchema
   }
-  
+  get type() {
+    return ['URL'];
+  }
+
   get url() {}
   set url(_url) {}
 
@@ -90,6 +103,10 @@ class URLEntity extends GenericEntity {
 }
 
 class Message extends GenericEntity {
+  get type() {
+    return ['Message'];
+  }
+
   get text() {}
   set text(_text) {}
 
