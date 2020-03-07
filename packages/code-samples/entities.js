@@ -1,5 +1,7 @@
 class GenericEntity {
-  static validators = [{}]
+  constructor(config) {
+    // validate config against GenericEntitySchema
+  }
   get id() {}
   get authors() {}
   get creationTime() {}
@@ -17,25 +19,28 @@ class GenericEntity {
       is: this.type,
       creationTime: this.creationTime,
       authors: this.authors,
-    }
+    };
   }
   get json() {
     return {
       data: this.data,
       meta: this.meta
-     }
-  }
-  validate() {
-    this.validators
+    };
   }
 }
 
 class GenericSpace extends GenericEntity {
+  constructor(config) {
+    // validate config against GenericSpaceSchema
+  }
   load() {}
   unload() {}
 }
 
 class StandardSpace extends GenericSpace {
+  constructor() {
+    // validate config against StandardSpaceSchema
+  }
   get content() {
     // return all content belonging to this space, coupled with the metadata
     /*
