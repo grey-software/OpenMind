@@ -54,6 +54,36 @@ class StandardSpace extends GenericSpace {
   }
 }
 
+
+class VideoYouTube extends GenericEntity {
+  constructor() {
+    // validate config against VideoYouTubeSchema
+  }
+  get videoId() {}
+  set videoId(_videoId) {}
+
+  get data() {
+    return {
+      videoId: this.videoId,
+    };
+  }
+}
+
+class URLEntity extends GenericEntity {
+  constructor() {
+    // validate config against URLSchema
+  }
+  
+  get url() {}
+  set url(_url) {}
+
+  get data() {
+    return {
+      url: this.url,
+    };
+  }
+}
+
 class Message extends GenericEntity {
   get text() {}
   set text(_text) {}
