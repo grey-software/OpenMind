@@ -6,15 +6,15 @@ sidebar: auto
 
 ## The abstracts
 
-OpenMind consists of Content and Spaces. Both are first class entities. 
-
 ### Entity
+
+OpenMind consists of Content (like URLs, text, and PDFs) organized in Spaces. Both are first class entities.
 
 <pre><code class="language-json">{{schema.GenericEntitySchema}}</code></pre>
 
 ### Space
 
-The Generic space is another abstract type that inherits from 
+A space can be visualized.
 
 <pre><code class="language-json">{{schema.GenericSpaceSchema}}</code></pre>
 
@@ -22,17 +22,22 @@ The Generic space is another abstract type that inherits from
 
 ### The Standard Space
 
+The standard space:
+
+* Maps content to nodes (1 content = 1 node)
+* Positions a subset of content (the space stores their (x, y) position)
+
 <pre><code class="language-json">{{schema.StandardSpaceSchema}}</code></pre>
 
-### Text
+### Text Content
 
 <pre><code class="language-json">{{schema.TextSchema}}</code></pre>
 
-### URL
+### URL Content
 
 <pre><code class="language-json">{{schema.URLSchema}}</code></pre>
 
-### Video
+### Video Content
 
 <pre><code class="language-json">{{schema.VideoYouTubeSchema}}</code></pre>
 
