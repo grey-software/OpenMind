@@ -1,14 +1,38 @@
+---
+sidebar: auto
+---
+
 # Data Model
+
+## The abstracts
+
+OpenMind consists of Content and Spaces. Both are first class entities. 
+
+### Entity
 
 <pre><code class="language-json">{{schema.GenericEntitySchema}}</code></pre>
 
+### Space
+
+The Generic space is another abstract type that inherits from 
+
 <pre><code class="language-json">{{schema.GenericSpaceSchema}}</code></pre>
+
+## Implementations
+
+### The Standard Space
 
 <pre><code class="language-json">{{schema.StandardSpaceSchema}}</code></pre>
 
+### Text
+
 <pre><code class="language-json">{{schema.TextSchema}}</code></pre>
 
+### URL
+
 <pre><code class="language-json">{{schema.URLSchema}}</code></pre>
+
+### Video
 
 <pre><code class="language-json">{{schema.VideoYouTubeSchema}}</code></pre>
 
