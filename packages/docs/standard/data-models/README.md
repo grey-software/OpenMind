@@ -4,7 +4,10 @@ sidebar: auto
 
 # Data Model (Schema)
 
+<aside class="note">For readability, this page shows examples by default. You can view the schemas, which are rigorously defined in json-schema v7</aside>
+
 ## The abstracts
+
 
 ### Entity
 
@@ -40,6 +43,13 @@ The standard space:
 ### Video Content
 
 <SchemaExample v-bind:schema="schema.VideoYouTubeSchema" v-bind:example="example.VideoYouTubeExample" />
+
+<style>
+aside.note {
+  padding: 1.5em;
+  background: #f8f8f8;
+}
+</style>
 
 <script>
 

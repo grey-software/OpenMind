@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="modeContainer">
-      <button :class="['modeSwitch', {active: mode==0}]" v-on:click="mode = 0">Schema</button>
       <button :class="['modeSwitch', {active: mode==1}]" v-on:click="mode = 1">Example</button>
+      <button :class="['modeSwitch', {active: mode==0}]" v-on:click="mode = 0">Schema</button>
     </div>
     <div v-if="mode == MODES.schema">
       <!-- <pre><code class="language-json">{{schema.GenericEntitySchema}}</code></pre> -->
@@ -50,7 +50,7 @@ export default {
   },
   data: () => {
     return {
-      mode: 0,
+      mode: 1,
       MODES: {
         schema: 0,
         example: 1,
