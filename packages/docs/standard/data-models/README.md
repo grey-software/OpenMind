@@ -42,7 +42,14 @@ The simplest (non-abstract) type. A piece of text.
 
 ### URL Content
 
-A URL
+A URL.
+
+Once OpenMind has a URL, it opens up a host of possibilities.
+
+* The URL itself can be parsed for its domain. A sample usecase is querying your OpenMind for domains you frequently link to.
+* The website at the URL can be crawled for its [Open Graph](https://ogp.me/) and meta tags.
+* The website at the URL can be crawled for all its content, generating a local cache (which you could search)
+* You can continue crawling links on the target URL to gather information 'in the viscinity'.
 
 <SchemaExample v-bind:schema="schema.URLSchema" v-bind:example="example.URLExample" />
 
