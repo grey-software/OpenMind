@@ -10,15 +10,13 @@ sidebar: auto
 
 OpenMind consists of Content (like URLs, text, and PDFs) organized in Spaces. Both are first class entities.
 
-<!-- <pre><code class="language-json">{{schema.GenericEntitySchema}}</code></pre> -->
-<Prism language="javascript">{{ schema.GenericEntitySchema }}</Prism>
+<SchemaExample v-bind:schema="schema.GenericEntitySchema" v-bind:example="example.GenericEntityExample" />
 
 ### Space
 
 A space can be visualized.
 
-<!-- <pre><code class="language-json">{{schema.GenericSpaceSchema}}</code></pre> -->
-<Prism language="javascript">{{ schema.GenericSpaceSchema }}</Prism>
+<SchemaExample v-bind:schema="schema.GenericSpaceSchema" v-bind:example="example.GenericEntityExample" />
 
 ## Implementations
 
@@ -29,38 +27,36 @@ The standard space:
 * Maps content to nodes (1 content = 1 node)
 * Positions a subset of content (the space stores their (x, y) position)
 
-<!-- <pre><code class="language-xml">{{schema.StandardSpaceSchema}}</code></pre> -->
-<Prism language="javascript">{{ schema.StandardSpaceSchema }}</Prism>
+<SchemaExample v-bind:schema="schema.StandardSpaceSchema" v-bind:example="example.StandardSpaceSchema" />
 
 ### Text Content
 
-<!-- <pre><code class="language-json">{{schema.TextSchema}}</code></pre> -->
-<Prism language="javascript">{{ schema.TextSchema }}</Prism>
+<SchemaExample v-bind:schema="schema.TextSchema" v-bind:example="example.TextSchema" />
 
 ### URL Content
 
-<!-- <pre><code class="language-json">{{schema.URLSchema}}</code></pre> -->
-<Prism language="javascript">{{ schema.URLSchema }}</Prism>
+<SchemaExample v-bind:schema="schema.URLSchema" v-bind:example="example.URLSchema" />
 
 ### Video Content
 
-<!-- <pre><code class="language-json">{{schema.VideoYouTubeSchema}}</code></pre> -->
-<Prism language="javascript">{{ schema.VideoYouTubeSchema }}</Prism>
+<SchemaExample v-bind:schema="schema.VideoYouTubeSchema" v-bind:example="example.VideoYouTubeSchema" />
 
 <script>
-import GenericEntitySchema from '../../../code-samples/GenericEntitySchema.json';
 
-import GenericSpaceSchema from '../../../code-samples/GenericSpaceSchema.json';
-import StandardSpaceSchema from '../../../code-samples/StandardSpaceSchema.json';
+// Schemas
+import GenericEntitySchema from '../../../code-samples/GenericEntity.schema.json';
 
-import TextSchema from '../../../code-samples/TextSchema.json';
-import URLSchema from '../../../code-samples/URLSchema.json';
-import VideoYouTubeSchema from '../../../code-samples/VideoYouTubeSchema.json';
+import GenericSpaceSchema from '../../../code-samples/GenericSpace.schema.json';
+import StandardSpaceSchema from '../../../code-samples/StandardSpace.schema.json';
 
-import 'prismjs'
-// import 'prismjs/themes/prism.css'
+import TextSchema from '../../../code-samples/Text.schema.json';
+import URLSchema from '../../../code-samples/URL.schema.json';
+import VideoYouTubeSchema from '../../../code-samples/VideoYouTube.schema.json';
 
-import Prism from 'vue-prism-component';
+// Examples
+import GenericEntityExample from '../../../code-samples/GenericEntity.example.json';
+
+import SchemaExample from './SchemaExample';
 
 export default {
   data () {
@@ -72,11 +68,14 @@ export default {
         TextSchema,
         URLSchema,
         VideoYouTubeSchema,
+      },
+      example: {
+        GenericEntityExample,
       }
     }
   },
   components: {
-    Prism,
+    SchemaExample,
   }
 }
 </script>
