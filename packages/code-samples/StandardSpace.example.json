@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "id": "aca09129-55d8-4aba-97fd-e94631075d43",
+    "is": ["Space", "StandardSpace"],
+    "creationTime": 1231006505000,
+    "authors": []
+  },
+  "data": {
+    "content": {
+      "707b6a47-8fd9-4149-b641-cf4649c5342d": {
+        "position": {"x": 124, "y": 27}
+      }
+    }
+  }
+}

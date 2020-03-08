@@ -16,7 +16,7 @@ OpenMind consists of Content (like URLs, text, and PDFs) organized in Spaces. Bo
 
 A space can be visualized.
 
-<SchemaExample v-bind:schema="schema.GenericSpaceSchema" v-bind:example="example.GenericEntityExample" />
+<SchemaExample v-bind:schema="schema.GenericSpaceSchema" v-bind:example="example.GenericSpaceExample" />
 
 ## Implementations
 
@@ -27,19 +27,19 @@ The standard space:
 * Maps content to nodes (1 content = 1 node)
 * Positions a subset of content (the space stores their (x, y) position)
 
-<SchemaExample v-bind:schema="schema.StandardSpaceSchema" v-bind:example="example.StandardSpaceSchema" />
+<SchemaExample v-bind:schema="schema.StandardSpaceSchema" v-bind:example="example.StandardSpaceExample" />
 
 ### Text Content
 
-<SchemaExample v-bind:schema="schema.TextSchema" v-bind:example="example.TextSchema" />
+<SchemaExample v-bind:schema="schema.TextSchema" v-bind:example="example.TextExample" />
 
 ### URL Content
 
-<SchemaExample v-bind:schema="schema.URLSchema" v-bind:example="example.URLSchema" />
+<SchemaExample v-bind:schema="schema.URLSchema" v-bind:example="example.URLExample" />
 
 ### Video Content
 
-<SchemaExample v-bind:schema="schema.VideoYouTubeSchema" v-bind:example="example.VideoYouTubeSchema" />
+<SchemaExample v-bind:schema="schema.VideoYouTubeSchema" v-bind:example="example.VideoYouTubeExample" />
 
 <script>
 
@@ -56,6 +56,13 @@ import VideoYouTubeSchema from '../../../code-samples/VideoYouTube.schema.json';
 // Examples
 import GenericEntityExample from '../../../code-samples/GenericEntity.example.json';
 
+import GenericSpaceExample from '../../../code-samples/GenericSpace.example.json';
+import StandardSpaceExample from '../../../code-samples/StandardSpace.example.json';
+
+import TextExample from '../../../code-samples/Text.example.json';
+import URLExample from '../../../code-samples/URL.example.json';
+import VideoYouTubeExample from '../../../code-samples/VideoYouTube.example.json';
+
 import SchemaExample from './SchemaExample';
 
 export default {
@@ -71,6 +78,11 @@ export default {
       },
       example: {
         GenericEntityExample,
+        GenericSpaceExample,
+        StandardSpaceExample,
+        TextExample,
+        URLExample,
+        VideoYouTubeExample,
       }
     }
   },
