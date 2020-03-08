@@ -24,6 +24,7 @@ pre {
   background: #282c34;
 }
 .modeSwitch {
+  transition: 0.3s all;
   background: none;
   color: white;
   border: none;
