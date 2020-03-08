@@ -20,3 +20,6 @@ TODO: Write overview for Research Use Case
 “Students around the world are used to taking notes in a monochromatic and linear manner. Taking notes should be a more personal task where associations, colors, opinions, and thoughts appear.”
 :::
 
+# Standard
+
+## [Data Models](/standard/data-models)
