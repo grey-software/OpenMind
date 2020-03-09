@@ -15,7 +15,7 @@ module.exports = {
                     children: [
                         '',
                         'research/',
-                        'language-learning/',
+                        'understanding-language/',
                         'learning/',
                     ]
                 }
