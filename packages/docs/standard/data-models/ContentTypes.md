@@ -1,8 +1,4 @@
----
-sidebar: auto
----
-
-# Content Data Model
+# Content Types
 
 <aside class="note">For readability, this page shows examples by default. You can view the schemas, which are rigorously defined in json-schema v7</aside>
 
@@ -69,9 +65,9 @@ aside.note {
 
 <script>
 
-import ContentTypeSchemaExamples from '../../../../ContentTypeSchemaExamples';  
+import ContentTypeSchemaExamples from '../../../ContentTypeSchemaExamples';  
 
-import SchemaExample from '../SchemaExample';
+import SchemaExample from './SchemaExample';
 
 export default {
   data () {

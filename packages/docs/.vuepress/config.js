@@ -16,9 +16,20 @@ module.exports = {
                         '',
                         'ContentType',
                         'OpenMindRepository'
-                    ]
+                    ],
+                },
+            ],
+            '/standard/': [
+                {
+                    title: 'Standard',
+                    sidebarDepth: 2,
+                    children: [
+                        '',
+                        'data-models/OpenMindFile',
+                        'data-models/ContentTypes',
+                    ],
                 }
-            ]
+            ],
         },
     }
 }
