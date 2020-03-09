@@ -1,48 +1,33 @@
----
-sidebar: auto
----
+# Content Type
 
 This page mirrors the data models in structure.
 
-# Abstracts
-
+## Abstracts
 Features of the abstract data types
 
-## Generic Entity
+### Generic Entity
 <<< @/../ContentTypeComponents/GenericEntity.component.js
 
-## Generic Space
+### Generic Space
 <<< @/../ContentTypeComponents/GenericSpace.component.js
 
 
-# Implementations
+## Implementations
 
 Features of implementations
 
-## Standard Space
+### Standard Space
 
 <<< @/../ContentTypeComponents/StandardSpace.component.js
 
-## Text
+### Text
 
 <<< @/../ContentTypeComponents/Text.component.js
 
-## URLs
+### URLs
 
 <<< @/../ContentTypeComponents/URLEntity.component.js
 
-## Video (YouTube)
+### Video (YouTube)
 
 <<< @/../ContentTypeComponents/VideoYouTube.component.js
-
-
-<script>
-
-import ContentTypeComponents from '../../../ContentTypeComponents';
-
-export default {
-  data: () => ({
-    ...ContentTypeComponents,
-  }),
-}
-</script>

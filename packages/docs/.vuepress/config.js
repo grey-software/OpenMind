@@ -6,6 +6,19 @@ module.exports = {
             { text: 'Use Cases', link: '/use-cases/' },
             { text: 'Standard', link: '/standard/' },
             { text: 'Components', link: '/components/' },
-        ]
+        ],
+        sidebar: {
+            '/components/': [
+                {
+                    title: 'Components',
+                    sidebarDepth: 2,
+                    children: [
+                        '',
+                        'ContentType',
+                        'OpenMindRepository'
+                    ]
+                }
+            ]
+        },
     }
 }
