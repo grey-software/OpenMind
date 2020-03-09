@@ -1,5 +1,5 @@
 # Introduction
 
 * [Research](/uses/research)
-* [Language Learning](/uses/language-learning)
+* [Understanding Language](/uses/understanding-language)
 * [Learning](/uses/learning)

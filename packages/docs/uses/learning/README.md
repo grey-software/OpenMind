@@ -1,4 +1,4 @@
-# For learning
+# Learning and Brainstorming
 
 Say you're an 18 year old who's developing expertise across various fields. 
 
