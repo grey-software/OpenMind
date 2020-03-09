@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # Language Learning
 
 ## Overview

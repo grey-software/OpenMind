@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # The research use case
 
 ## The context to a piece of content
