@@ -1,4 +1,4 @@
-# The research use case
+# Research
 
 ## The context to a piece of content
 
