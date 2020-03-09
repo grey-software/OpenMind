@@ -11,8 +11,6 @@ sidebar: auto
 # Use Cases
 
 ## [Research](/use-cases/research)
-TODO: Write overview for Research Use Case
-
 
 ## [Language Learning](/use-cases/language-learning)
 
@@ -36,7 +34,7 @@ TODO: Write overview for Research Use Case
 
 ## Spaces
 
-## ContentType implementations
+## [ContentType implementations](/components/content-type-implementations/)
 
 ## ContentType viewers
 
