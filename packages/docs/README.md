@@ -6,7 +6,7 @@ footer: MIT Licensed
 sidebar: auto
 --- 
 
-# Vision
+# [Vision](/vision)
 
 # Use Cases
 
@@ -26,9 +26,9 @@ TODO: Write overview for Research Use Case
 
 ## Data Models
 
-### OpenMind file
+### [OpenMind file](/standard/data-models/openmind-file)
 
-### Content Types
+### [Content Types](/standard/data-models/content-types)
 
 # Components
 
