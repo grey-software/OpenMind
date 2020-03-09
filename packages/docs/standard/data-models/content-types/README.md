@@ -71,7 +71,7 @@ aside.note {
 
 import ContentTypeSchemaExamples from '../../../../ContentTypeSchemaExamples';  
 
-import SchemaExample from './SchemaExample';
+import SchemaExample from '../SchemaExample';
 
 export default {
   data () {
