@@ -5,17 +5,16 @@
       <button :class="['modeSwitch', {active: mode==0}]" v-on:click="mode = 0">Schema</button>
     </div>
     <div v-if="mode == MODES.schema">
-      <!-- <pre><code class="language-json">{{schema.GenericEntitySchema}}</code></pre> -->
-      <Prism language="javascript">{{ schema }}</Prism>
+      <Prism class="collapsedMargin" language="javascript">{{ schema }}</Prism>
     </div>
     <div v-else-if="mode == MODES.example">
-      <Prism language="javascript">{{ example }}</Prism>
+      <Prism class="collapsedMargin" language="javascript">{{ example }}</Prism>
     </div>
   </div>
 </template>
 
 <style>
-pre {
+pre.collapsedMargin {
   margin-top: 0px !important;
   border-radius: 0 !important;
 }
