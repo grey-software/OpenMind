@@ -1,7 +1,5 @@
-# Use Cases
+# Introduction
 
-## [Research](/uses/research)
-
-## [Language Learning](/uses/language-learning)
-
-## [Brainstorming](/uses/brainstorming)
+* [Research](/uses/research)
+* [Language Learning](/uses/language-learning)
+* [Brainstorming](/uses/brainstorming)

@@ -14,9 +14,9 @@ module.exports = {
                     sidebarDepth: 2,
                     children: [
                         '',
-                        'research',
-                        'language-learning',
-                        'brainstorming',
+                        'research/',
+                        'language-learning/',
+                        'brainstorming/',
                     ]
                 }
             ],
