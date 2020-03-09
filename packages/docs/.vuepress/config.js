@@ -16,7 +16,7 @@ module.exports = {
                         '',
                         'research/',
                         'language-learning/',
-                        'brainstorming/',
+                        'learning/',
                     ]
                 }
             ],
