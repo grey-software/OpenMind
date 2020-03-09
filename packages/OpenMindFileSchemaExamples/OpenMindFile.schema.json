@@ -1,0 +1,23 @@
+{ 
+  "$id": "https://docs.open-mind/schemas/OpenMindFile",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OpenMindFile",
+  "type": "object",
+  "properties": {
+    "creationTime": {
+      "type": "number"
+    },
+    "content": {
+      "type": "object",
+      "patternProperties": {
+        ".+": {
+          "type": "object",
+          "allOf": [
+            {"$ref": "#/GenericEntity"}
+          ]
+        }
+      }
+    }
+  }
+}
+
