@@ -1,4 +1,4 @@
-# Content Type
+# Content Types
 
 This page mirrors the data models in structure.
 

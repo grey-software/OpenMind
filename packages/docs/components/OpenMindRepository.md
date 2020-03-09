@@ -1,3 +1,5 @@
-## OpenMind repository
+# OpenMind repository
 
 The OpenMind repository
+
+<<< @/../OpenMindComponents/OpenMindRepository.js
