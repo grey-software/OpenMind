@@ -6,8 +6,9 @@ sidebar: auto
 
 <aside class="note">For readability, this page shows examples by default. You can view the schemas, which are rigorously defined in json-schema v7</aside>
 
-## The abstracts
+## Abstracts
 
+The OpenMind Standard defines two abstract data models for content: `Entity` and `Space`
 
 ### Entity
 
@@ -17,13 +18,13 @@ OpenMind consists of Content (like URLs, text, and PDFs) organized in Spaces. Bo
 
 ### Space
 
-A space is an entity that is meant to be visualized.
+A space is an entity that is meant to be visualized. It's derivative of the abstract Entity type (A space will comply with the Entity schema)
 
 <SchemaExample v-bind:schema="schema.GenericSpaceSchema" v-bind:example="example.GenericSpaceExample" />
 
-## Implementations
+## Implements
 
-### The Standard Space
+### Standard Space
 
 The standard space:
 
@@ -68,47 +69,14 @@ aside.note {
 
 <script>
 
-// Schemas
-import GenericEntitySchema from '../../../code-samples/GenericEntity.schema.json';
-
-import GenericSpaceSchema from '../../../code-samples/GenericSpace.schema.json';
-import StandardSpaceSchema from '../../../code-samples/StandardSpace.schema.json';
-
-import TextSchema from '../../../code-samples/Text.schema.json';
-import URLSchema from '../../../code-samples/URL.schema.json';
-import VideoYouTubeSchema from '../../../code-samples/VideoYouTube.schema.json';
-
-// Examples
-import GenericEntityExample from '../../../code-samples/GenericEntity.example.json';
-
-import GenericSpaceExample from '../../../code-samples/GenericSpace.example.json';
-import StandardSpaceExample from '../../../code-samples/StandardSpace.example.json';
-
-import TextExample from '../../../code-samples/Text.example.json';
-import URLExample from '../../../code-samples/URL.example.json';
-import VideoYouTubeExample from '../../../code-samples/VideoYouTube.example.json';
+import ContentTypeSchemaExamples from '../../../../ContentTypeSchemaExamples';  
 
 import SchemaExample from './SchemaExample';
 
 export default {
   data () {
     return {
-      schema: {
-        GenericEntitySchema,
-        GenericSpaceSchema,
-        StandardSpaceSchema,
-        TextSchema,
-        URLSchema,
-        VideoYouTubeSchema,
-      },
-      example: {
-        GenericEntityExample,
-        GenericSpaceExample,
-        StandardSpaceExample,
-        TextExample,
-        URLExample,
-        VideoYouTubeExample,
-      }
+      ...ContentTypeSchemaExamples,
     }
   },
   components: {
