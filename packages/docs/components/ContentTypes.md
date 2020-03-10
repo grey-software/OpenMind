@@ -1,5 +1,9 @@
 # Content Types
 
+::: tip How we're describing these components
+Instead of writing pseudocode, we used ECMAScript to describe the structure and functioning of the components.
+:::
+
 This page mirrors the data models in structure.
 
 ## Abstracts
