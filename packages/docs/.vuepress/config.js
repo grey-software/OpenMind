@@ -26,8 +26,8 @@ module.exports = {
                     sidebarDepth: 2,
                     children: [
                         '',
-                        'ContentType',
-                        'OpenMindRepository'
+                        'OpenMindRepository',
+                        'ContentTypes',
                     ],
                 },
             ],

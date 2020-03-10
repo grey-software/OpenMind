@@ -21,4 +21,11 @@ class StandardSpace extends GenericSpace {
       content: this.content
     }
   }
+  load() {
+    // create a graph instance
+    // Go through each id, {element, position} pair in this.content and position them on the graph
+  }
+  unload() {
+    // unload the graph
+  }
 }
