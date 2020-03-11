@@ -15,7 +15,7 @@ class Graph extends Component {
   render() {
     return (
       <div>
-        <div id="cyElement" ref={this.cyElement}/>
+        <div id="cyElement" className="light" ref={this.cyElement}/>
       </div>
     );
   }

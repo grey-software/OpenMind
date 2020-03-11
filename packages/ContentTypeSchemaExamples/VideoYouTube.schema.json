@@ -1,0 +1,44 @@
+{
+  "$id": "https://docs.open-mind/schemas/TextSchema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Text",
+  "type": "object",
+  "allOf": [
+    {"$ref": "#/GenericEntity"}
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "is": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "allOf": [
+            {
+              "contains": {
+                "enum": ["Video"]
+              }
+            },
+            {
+              "contains": {
+                "enum": ["VideoYouTube"]
+              }
+            }
+          ],
+          "minItems": 2,
+          "uniqueItems": true
+        }
+      }
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "videoId": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

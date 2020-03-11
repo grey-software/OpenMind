@@ -1,0 +1,30 @@
+{ 
+  "creationTime": 1231006505000,
+  "content": {
+    "b541388c-3547-41b6-b58a-759dc7e27ed7": {
+      "meta": {
+        "id": "b541388c-3547-41b6-b58a-759dc7e27ed7",
+        "is": ["Space", "StandardSpace"],
+        "creationTime": 1231006505000,
+        "authors": []
+      },
+      "data": {
+        "content": {
+          "938f8b22-e698-443f-a8e1-524c210c6546": {
+            "positions": {"x": 100, "y": 150}
+          }     
+        }
+      }
+    },
+    "938f8b22-e698-443f-a8e1-524c210c6546": {
+      "meta": {
+        "id": "938f8b22-e698-443f-a8e1-524c210c6546",
+        "is": ["Text"],
+        "creationTime": 1231006505001,
+        "authors": []
+      },
+      "data": {}
+    }
+  }
+}
+

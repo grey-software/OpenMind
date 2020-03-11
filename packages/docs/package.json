@@ -1,9 +1,11 @@
 {
     "scripts": {
         "dev": "vuepress dev",
-        "build": "rm -rf docs; mkdir docs;\\ rm -rf ../../docs;\\ vuepress build;\\ cp -r ./docs ../..;"
+        "build": "rm -rf docs; mkdir docs;\\ rm -rf ../../docs;\\ vuepress build;\\ cp -r ./docs ../..;",
+        "build:netlify": "vuepress build"
     },
     "devDependencies": {
-        "vuepress": "^1.3.1"
+        "vuepress": "^1.3.1",
+        "vue-prism-component": "^1.1.1"
     }
 }

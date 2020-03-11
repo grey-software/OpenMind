@@ -1,0 +1,39 @@
+{
+  "$id": "https://docs.open-mind/schemas/GenericEntity",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GenericEntity",
+  "type": "object",
+  "required": [ "meta", "data" ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "is": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "creationTime": {
+          "type": "number"
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }        
+    },
+    "data": {
+      "type": "object"
+    }
+  }
+}
