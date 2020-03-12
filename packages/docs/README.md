@@ -1,6 +1,6 @@
 ---
 home: true
-heroText: Open Mind
+heroText: 🧠 Open Mind
 tagline: We're creating an open standard for organizing learning and research notes using mind maps.
 footer: MIT Licensed
 sidebar: auto

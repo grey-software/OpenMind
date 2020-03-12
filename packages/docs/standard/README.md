@@ -1,4 +1,4 @@
-# Introduction
+# 📙 Introduction
 
 The OpenMind standard defines:
 
