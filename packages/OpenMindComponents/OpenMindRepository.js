@@ -10,10 +10,17 @@ class OpenMindRepository {
   get content() {
     // return a map of {id: <GenericEntityInterface>}
   }
+  createContent(content) {
+    /**
+     * @param {GenericEntityInterface} content
+     * Adds content to the repository. Content could be a space.
+     */
+  }
 
   loadSpace(space) {
     // precondition: space is an instance of a class that implements GenericSpace
-    space.load()
+    space.load();
+    this.currentSpace = space;
   }
 
   get spaces() {
