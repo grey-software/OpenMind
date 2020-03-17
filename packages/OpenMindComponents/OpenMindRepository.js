@@ -22,6 +22,11 @@ class OpenMindRepository {
     space.load();
     this.currentSpace = space;
   }
+  unloadSpace() {
+    if (!this.currentSpace) return;
+    this.currentSpace.unload();
+    this.currentSpace = null;
+  }
 
   get spaces() {
     // return a map of {id: <GenericSpaceInterface>}
