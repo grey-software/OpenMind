@@ -1,12 +1,14 @@
 <template>
-  
+  <div>
+    {{content.data.text}}
+  </div>
 </template>
 
 <script lang="ts">
 import ContentMeta from '../types/ContentMeta';
 
 enum ContentType {
-    text
+  text
 }
 
 interface TextData {
@@ -17,12 +19,12 @@ interface TextData {
 }
 
 export default {
-    props: {
-        content: {
-            type: Object as () => TextData,
-            default: ""
-        },
+  props: {
+    content: {
+      type: Object as () => TextData,
+      default: {}
     },
+  },
 }
 </script>
 

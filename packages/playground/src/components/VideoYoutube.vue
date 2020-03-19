@@ -31,10 +31,7 @@ export default {
       type: Object as () => VideoYoutubeContent,
       default: {}
     }
-  },
-  data: () => ({
-    test: {a:1}
-  })
+  }
 };
 </script>
 

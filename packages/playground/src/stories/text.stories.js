@@ -2,25 +2,27 @@
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
-import VideoYoutube from '../components/VideoYoutube.vue'
+import TextContent from '../components/TextContent.vue'
 
 export default {
-  component: VideoYoutube,
-  title: 'VideoYoutube'
+  component: TextContent,
+  title: 'Text'
 }
 
 let content = {
+  meta: {},
   data: {
-    videoId: "3XkL0qQ21Oo"
+    text: "Hello me!"
   }
 }
 
-export const withRandomVideo = () => ({
-  components: { VideoYoutube },
+
+export const withRandomText = () => ({
+  components: { TextContent },
   data() {
     return {
       content,
     }
   },
-  template: `<VideoYoutube :content="content" />`,
+  template: `<TextContent :content="content" />`,
 })
