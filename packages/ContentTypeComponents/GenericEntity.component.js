@@ -10,6 +10,14 @@ class GenericEntity {
     return [];
   }
   
+  get links() {
+    /**
+     * Returns an array of what the entity links to, as a function of its data.
+     * @return [{id, ...[other meta data about the link]}]
+     */
+    return [];
+  }
+
   get data() {
     return {} // overridden in abstract
   }

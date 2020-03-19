@@ -1,4 +1,4 @@
-# Introduction
+# 💡 Introduction
 
 We took a look at three use cases of a platform based on the OpenMind standard. Each reveals something about the nature of the problem we're solving.
 

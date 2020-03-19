@@ -16,6 +16,12 @@ class StandardSpace extends GenericSpace {
     }
      */
   }
+  set content(_content) {
+    // sets all content data
+  }
+  setContentById(id, content) {
+    // sets content belonging to id
+  }
   get data() {
     return {
       content: this.content
