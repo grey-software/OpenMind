@@ -2,7 +2,7 @@
 
 We are focusing on implementing the following user journey:
 
-![State Chart](./StateChart.png)
+![State Chart](./StateChart2.png)
 
 OpenMind components:
 
