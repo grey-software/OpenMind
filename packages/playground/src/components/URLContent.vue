@@ -1,12 +1,14 @@
 <template>
-  
+  <div>
+    {{content.data.url}}
+  </div>
 </template>
 
 <script lang="ts">
 import ContentMeta from '../types/ContentMeta';
 
 enum ContentType {
-    url
+  url
 }
 
 interface URLData {
