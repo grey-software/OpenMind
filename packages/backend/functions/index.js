@@ -27,6 +27,8 @@ app.use((req, res, next) => {
 const ping = async (req, res) => {
   res.status(200).send('Status: Connecting ideas.');
 }
+
+app.use('/opengraph', require('./src/opengraph'));
 app.use('/ping', asyncWrap(ping));
 
 app.use((err, req, res, next) => {
