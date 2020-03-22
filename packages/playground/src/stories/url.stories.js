@@ -2,6 +2,8 @@
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
+import '../plugins/axios';
+
 import URLContent from '../components/URLContent.vue'
 
 export default {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{content.data.url}}
+    {{ogData}}
   </div>
 </template>
 
@@ -11,6 +11,8 @@ enum ContentType {
   url
 }
 
+const scraper = `http://us-central1-openmindstandard.cloudfunctions.net/api/opengraph/scrape`;
+
 interface URLData {
   meta: ContentMeta,
   data: {
@@ -18,12 +20,27 @@ interface URLData {
   }
 }
 export default {
+    async mounted() {
+      let url = this.content.data.url;
+      let {data} = await this.$http(scraper, {
+        method: 'POST',
+        data: {
+          url,
+        }
+      });
+      this.$data.ogData = data;
+    },
     props: {
         content: {
             type: Object as () => URLData,
             default: ""
         },
     },
+    data() {
+      return {
+        ogData: {},
+      }
+    }
 }
 </script>
 
