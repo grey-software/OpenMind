@@ -11,20 +11,20 @@ export default {
   title: 'URL'
 }
 
-let content = {
-  meta: {},
-  data: {
-    url: "https://blog.ycombinator.com/why-toys/"
-  }
-}
-
-
-export const withBlogUrl = () => ({
+const URLComponentByURL = url => () => ({
   components: { URLContent },
   data() {
     return {
-      content,
+      content: {
+        meta: {},
+        data: {
+          url,
+        }
+      },
     }
   },
   template: `<URLContent :content="content" />`,
 })
+
+export const withBlogUrl = URLComponentByURL("https://blog.ycombinator.com/why-toys/")
+export const withVideoUrl = URLComponentByURL("https://www.youtube.com/watch?v=Mx3UPfzGeN4")
