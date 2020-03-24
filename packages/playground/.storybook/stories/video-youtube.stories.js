@@ -2,7 +2,7 @@
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
-import VideoYoutube from '../components/VideoYoutube.vue'
+import VideoYoutube from '../../src/components/VideoYoutube.vue'
 
 export default {
   component: VideoYoutube,

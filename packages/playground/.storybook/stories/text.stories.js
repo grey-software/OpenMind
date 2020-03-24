@@ -2,7 +2,7 @@
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
 
-import TextContent from '../components/TextContent.vue'
+import TextContent from '../../src/components/TextContent.vue'
 
 export default {
   component: TextContent,
