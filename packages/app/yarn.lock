@@ -1022,6 +1022,11 @@
     codex-notifier "^1.1.2"
     codex-tooltip "^1.0.0"
 
+"@editorjs/paragraph@^2.6.1":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@editorjs/paragraph/-/paragraph-2.6.1.tgz#efd21da9912686024abd96eedd0c2258193f7d31"
+  integrity sha512-YaV8nVQVS3iMKig/XwmX0+Bq4NxHymWdUPdwpaAyyhOoo6z0ht5uhEzDG9QOOTVKsimcmR49bJLEtl3dlBoqxA==
+
 "@emotion/hash@^0.7.4":
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.7.4.tgz#f14932887422c9056b15a8d222a9074a7dfa2831"
@@ -1886,9 +1891,9 @@ acorn-walk@^6.0.1:
   integrity sha512-7evsyfH1cLOCdAzZAd43Cic04yKydNx0cF+7tiA19p1XnLLPU4dpCQOqpjqwokFe//vS0QqfqqjCS2JkiIs0cA==
 
 acorn@^5.5.3:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
-  integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
+  integrity sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
 
 acorn@^6.0.1, acorn@^6.0.4, acorn@^6.2.1:
   version "6.4.0"
@@ -9096,6 +9101,11 @@ react-dom@^16.12.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.18.0"
+
+react-editor-js@^1.4.2:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/react-editor-js/-/react-editor-js-1.4.4.tgz#5b59b5b85263d57451d296dc329c8ad52bad6986"
+  integrity sha512-5GsL7oVWZUe4skh2GdxIzvTMR7+R6x1foxVwVWz8aCEm9KrPAQFcGA/cffyFoUhlQFbmS9sfA3yjbl9wdSVaxQ==
 
 react-error-overlay@^6.0.4:
   version "6.0.4"
