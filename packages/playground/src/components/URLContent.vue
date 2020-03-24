@@ -21,7 +21,7 @@
 <script lang="ts">
 import ContentMeta from "../types/ContentMeta";
 
-const scraper = `http://us-central1-openmindstandard.cloudfunctions.net/api/opengraph/scrape`;
+const scraper = `https://us-central1-openmindstandard.cloudfunctions.net/api/opengraph/scrape`;
 
 interface URLData {
   meta: ContentMeta;
