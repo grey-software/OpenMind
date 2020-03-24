@@ -19,6 +19,11 @@ interface TextData {
 }
 
 export default {
+  watch: {
+    content: {
+      deep: true,
+    }
+  },
   props: {
     content: {
       type: Object as () => TextData,
