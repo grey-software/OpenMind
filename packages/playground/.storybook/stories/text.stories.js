@@ -12,17 +12,16 @@ export default {
 }
 
 export const withRandomText = () => {
-  let textKnob = text("Text", "Hello me!");
   return ({
     components: { TextContent },
-    data() {
-      return {
-        content: {
+    props: {
+      content: {
+        default: {
           meta: {},
           data: {
-            text: textKnob,
+            text: text("Text", "Hello me!"),
           }
-        },
+        }
       }
     },
     template: `<TextContent :content="content" />`,

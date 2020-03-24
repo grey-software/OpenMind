@@ -14,15 +14,14 @@ export default {
 }
 
 const URLComponentByURL = url => () => {
-  const urlKnob = text("URL", url);
   return {
     components: { URLContent },
-    data() {
-      return {
-        content: {
+    props: {
+      content: {
+        default: {
           meta: {},
           data: {
-            url: urlKnob,
+            url: text("URL", url),
           }
         },
       }

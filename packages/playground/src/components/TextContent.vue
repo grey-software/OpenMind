@@ -1,6 +1,7 @@
 <template>
   <div>
     {{content.data.text}}
+    {{test}}
   </div>
 </template>
 
@@ -22,6 +23,7 @@ export default {
   watch: {
     content: {
       deep: true,
+      handler: (val, oldVal) => {}
     }
   },
   props: {
