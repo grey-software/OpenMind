@@ -1,6 +1,7 @@
 <template>
   <div>
     {{content.data.text}}
+    {{test}}
   </div>
 </template>
 
@@ -19,6 +20,12 @@ interface TextData {
 }
 
 export default {
+  watch: {
+    content: {
+      deep: true,
+      handler: (val, oldVal) => {}
+    }
+  },
   props: {
     content: {
       type: Object as () => TextData,
