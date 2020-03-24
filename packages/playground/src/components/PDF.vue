@@ -10,7 +10,7 @@
 <script lang="ts">
 import ContentMeta from "../types/ContentMeta";
 
-// const scraper = `https://us-central1-openmindstandard.cloudfunctions.net/api/opengraph/scrape`;
+// const downloader = `https://us-central1-openmindstandard.cloudfunctions.net/api/pdf/download`;
 
 interface PDFData {
   meta: ContentMeta;

@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { action } from '@storybook/addon-actions'
 import { linkTo } from '@storybook/addon-links'
+import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 
 import '../../src/plugins/axios.ts';
 
@@ -8,20 +9,21 @@ import PDFContent from '../../src/components/PDF.vue'
 
 export default {
   component: PDFContent,
-  title: 'PDF'
+  title: 'PDF',
+  decorators: [withKnobs],
 }
 
 const PDFComponentByURL = url => () => ({
   components: { PDFContent },
-  data() {
-    return {
-      content: {
+  props: {
+    content: {
+      default: {
         meta: {},
         data: {
-          url,
+          url: text('PDF URL', url),
         }
-      },
-    }
+      }
+    },
   },
   template: `<PDFContent :content="content" />`,
 })
