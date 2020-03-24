@@ -33,18 +33,34 @@ export default {
   methods: {
     navigateToUrl() {
       window.location = this.ogData.ogUrl
+    },
+    async updateUrl() {
+      this.$data.loaded = false;
+      let { data } = await this.$http(scraper, {
+        method: "POST",
+        data: {
+          url: this.url,
+        }
+      });
+      this.$data.ogData = data.data;
+      this.$data.loaded = true;
     }
   },
+  async beforeUpdate() {
+    await this.updateUrl();
+  },
   async mounted() {
-    let url = this.content.data.url;
-    let { data } = await this.$http(scraper, {
-      method: "POST",
-      data: {
-        url
-      }
-    });
-    this.$data.ogData = data.data;
-    this.$data.loaded = true;
+    await this.updateUrl();
+  },
+  watch: {
+    async url() {
+      await this.updateUrl();
+    }
+  },
+  computed: {
+    url() {
+      return this.content.data.url
+    }
   },
   props: {
     content: {
@@ -52,6 +68,7 @@ export default {
       default: ""
     }
   },
+  
   data() {
     return {
       ogData: {},
