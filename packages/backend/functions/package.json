@@ -20,6 +20,7 @@
     "firebase-functions": "^3.3.0",
     "lodash": "^4.17.15",
     "open-graph-scraper": "^3.6.2",
+    "pdf-parse": "^1.1.1",
     "uuid": "^7.0.2"
   },
   "devDependencies": {
