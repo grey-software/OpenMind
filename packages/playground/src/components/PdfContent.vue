@@ -47,7 +47,6 @@ import _ from 'lodash';
 
 import ContentMeta from "../types/ContentMeta";
 
-// const downloader = `https://us-central1-openmindstandard.cloudfunctions.net/api/pdf/download`;
 const metadataURL = `https://us-central1-openmindstandard.cloudfunctions.net/api/pdf/metadata`;
 
 interface PDFData {
@@ -117,7 +116,6 @@ export default {
 <style scoped>
 .v-card {
   border-radius: 32px !important;
-  /* height: 100em; */
 }
 .pdfIcon {
   display: flex;
