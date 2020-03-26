@@ -5,16 +5,16 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 
 import '../../src/plugins/axios.ts';
 
-import PDFContent from '../../src/components/PDF.vue'
+import PdfContent from '../../src/components/PdfContent.vue'
 
 export default {
-  component: PDFContent,
+  component: PdfContent,
   title: 'PDF',
   decorators: [withKnobs],
 }
 
 const PDFComponentByURL = url => () => ({
-  components: { PDFContent },
+  components: { PdfContent },
   props: {
     content: {
       default: {
@@ -25,7 +25,7 @@ const PDFComponentByURL = url => () => ({
       }
     },
   },
-  template: `<PDFContent :content="content" />`,
+  template: `<PdfContent :content="content" />`,
 })
 
 export const withPDFUrl = PDFComponentByURL("http://bitcoin.org/bitcoin.pdf")
