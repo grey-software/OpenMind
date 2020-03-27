@@ -15024,6 +15024,13 @@ vue-template-es2015-compiler@^1.6.0, vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
+vue-wikitext@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/vue-wikitext/-/vue-wikitext-0.0.1.tgz#a85bdef1dbc24ef926eaef4ace4f7bb7be66c253"
+  integrity sha512-uhn+TH/mWAWEUNFsoo7t57faekDweYnu8CjHdDtaYpFz5N0jp0FDJpbenh2f6+JynWQ6eGc0gOt9LBR6w5MxWQ==
+  dependencies:
+    wiky "^0.95.1"
+
 vue@^2.6.10:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
@@ -15420,6 +15427,11 @@ widest-line@^3.1.0:
   integrity sha512-NsmoXalsWVDMGupxZ5R08ka9flZjjiLvHVAWYOKtiKM8ujtZWr9cRffak+uSE48+Ob8ObalXpwyeUiyDD6QFgg==
   dependencies:
     string-width "^4.0.0"
+
+wiky@^0.95.1:
+  version "0.95.1"
+  resolved "https://registry.yarnpkg.com/wiky/-/wiky-0.95.1.tgz#816894f32fb66e5d09a97275b162568a1fe51536"
+  integrity sha1-gWiU8y+2bl0JqXJ1sWJWih/lFTY=
 
 window-size@0.1.0:
   version "0.1.0"
