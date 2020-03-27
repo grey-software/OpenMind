@@ -14,6 +14,7 @@
           height="700px"
         >
       </div>
+      <v-list-item />
     </v-card>    
     <v-card class="mx-auto" v-else-if="mode == 'preview'" max-width="344">
       <v-list-item></v-list-item>
