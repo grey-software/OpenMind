@@ -3,27 +3,34 @@
     <v-card class="mx-auto" max-width="344">
       <v-list-item class="header"></v-list-item>
       <v-list-item>
-        <v-card-text>{{content.data.text}}</v-card-text>
+        <v-card-text v-if="content.data.text">{{content.data.text}}</v-card-text>
+        <v-card-text v-else-if="content.data.markdown"><vue-markdown :source="content.data.markdown"></vue-markdown></v-card-text>
       </v-list-item>
     </v-card>
   </div>
 </template>
 
 <script lang="ts">
+import VueMarkdown from 'vue-markdown';
+
 import ContentMeta from '../types/ContentMeta';
 
 enum ContentType {
-  text
+  text,
 }
 
 interface TextData {
   meta: ContentMeta,
   data: {
     text: string,
+    markdown: string,
   }
 }
 
 export default {
+  components: {
+    'vue-markdown': VueMarkdown,
+  },
   watch: {
     content: {
       deep: true,
