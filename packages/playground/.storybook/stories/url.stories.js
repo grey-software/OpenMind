@@ -5,17 +5,17 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 
 import '../../src/plugins/axios.ts';
 
-import URLContent from '../../src/components/URLContent.vue'
+import UrlContent from '../../src/components/UrlContent.vue'
 
 export default {
-  component: URLContent,
+  component: UrlContent,
   title: 'URL',
   decorators: [withKnobs],
 }
 
 const URLComponentByURL = url => () => {
   return {
-    components: { URLContent },
+    components: { UrlContent },
     props: {
       content: {
         default: {
@@ -26,7 +26,7 @@ const URLComponentByURL = url => () => {
         },
       }
     },
-    template: `<URLContent :content="content" />`,
+    template: `<UrlContent :content="content" />`,
   }
 }
 

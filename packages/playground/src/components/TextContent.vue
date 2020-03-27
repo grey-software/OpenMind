@@ -1,7 +1,14 @@
 <template>
   <div>
-    {{content.data.text}}
-    {{test}}
+    <v-card class="mx-auto" max-width="344">
+
+
+      <v-card-text>{{content.data.text}}</v-card-text>
+
+      <v-card-actions>
+        <v-spacer></v-spacer>
+      </v-card-actions>
+    </v-card>
   </div>
 </template>
 

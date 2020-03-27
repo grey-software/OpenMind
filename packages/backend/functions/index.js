@@ -29,6 +29,7 @@ const ping = async (req, res) => {
 }
 
 app.use('/opengraph', require('./src/opengraph'));
+app.use('/pdf', require('./src/pdf'));
 app.use('/ping', asyncWrap(ping));
 
 app.use((err, req, res, next) => {

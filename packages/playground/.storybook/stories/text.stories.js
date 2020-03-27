@@ -8,7 +8,7 @@ import TextContent from '../../src/components/TextContent.vue'
 export default {
   component: TextContent,
   title: 'Text',
-  decorators: [withKnobs],
+  decorators: [withKnobs({escapeHTML: false})],
 }
 
 export const withRandomText = () => {
