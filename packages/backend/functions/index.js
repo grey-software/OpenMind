@@ -38,3 +38,22 @@ app.use((err, req, res, next) => {
 });
 
 exports.api = functions.https.onRequest(app);
+
+let puppeteer = null;
+let browser = null;
+exports.screenshot = functions.runWith({memory: "1GB"}).https.onRequest(async (req, res) => {
+  if (!puppeteer) puppeteer = require('puppeteer');
+  const { url } = req.query;
+
+  if (!browser) browser = await puppeteer.launch({
+    defaultViewport: {width: 1920, height: 1080},
+    args: ['--no-sandbox'],
+  });
+  const page = await browser.newPage();
+  await page.goto(url);
+  let b64string = await page.screenshot({ encoding: "base64" });
+  let buffer = Buffer.from(b64string, "base64");
+  res.setHeader('Content-Type', 'image/png');
+  res.send(buffer);
+  return;
+})
