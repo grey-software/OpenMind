@@ -1,13 +1,10 @@
 <template>
   <div>
     <v-card class="mx-auto" max-width="344">
-
-
-      <v-card-text>{{content.data.text}}</v-card-text>
-
-      <v-card-actions>
-        <v-spacer></v-spacer>
-      </v-card-actions>
+      <v-list-item class="header"></v-list-item>
+      <v-list-item>
+        <v-card-text>{{content.data.text}}</v-card-text>
+      </v-list-item>
     </v-card>
   </div>
 </template>
@@ -42,6 +39,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.v-card {
+  border-radius: 32px !important;
+}
+.header {
+  border-bottom: 1px solid #ddd;
+}
 </style>
