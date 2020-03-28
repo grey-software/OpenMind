@@ -68,7 +68,7 @@ export default {
       e.stopPropagation();
     },
     async updatePdfMetadata() {
-      this.$data.loadedMeta = false;
+      this.loadedMeta = false;
       let url = this.content.data.url;
       let { data } = await this.$http(`${metadataURL}?url=${url}`, {
         method: "GET"
