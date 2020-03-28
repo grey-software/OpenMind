@@ -21,7 +21,7 @@
 <script lang="ts">
 import ContentMeta from "../types/ContentMeta";
 
-const scraper = `http://us-central1-openmindstandard.cloudfunctions.net/api/opengraph/scrape`;
+const scraper = `https://us-central1-openmindstandard.cloudfunctions.net/api/opengraph/scrape`;
 
 interface URLData {
   meta: ContentMeta;
@@ -33,25 +33,36 @@ export default {
   methods: {
     navigateToUrl() {
       window.location = this.ogData.ogUrl
+    },
+    async updateUrl() {
+      this.$data.loaded = false;
+      let { data } = await this.$http(scraper, {
+        method: "POST",
+        data: {
+          url: this.content.data.url,
+        }
+      });
+      this.$data.ogData = data.data;
+      this.$data.loaded = true;
     }
   },
   async mounted() {
-    let url = this.content.data.url;
-    let { data } = await this.$http(scraper, {
-      method: "POST",
-      data: {
-        url
-      }
-    });
-    this.$data.ogData = data.data;
-    this.$data.loaded = true;
+    await this.updateUrl();
+  },
+  watch: {
+    content: {
+      deep: true,
+      handler: async function (val, oldVal) {
+        if (val!==oldVal) await this.updateUrl()
+      },
+    }
   },
   props: {
     content: {
       type: Object as () => URLData,
-      default: ""
+      default: {}
     }
-  },
+  },  
   data() {
     return {
       ogData: {},
