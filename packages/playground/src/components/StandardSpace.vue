@@ -1,12 +1,13 @@
 <template>
   <div>
-    {{content}}
+    <div id="cyto" ref="cytoRef" />
   </div>
 </template>
 
 
 <script lang="ts">
 import _ from "lodash";
+import cytoscape from 'cytoscape';
 
 import ContentMeta from "../types/ContentMeta";
 
@@ -22,7 +23,12 @@ export default {
 
     }
   },
-  async mounted() {},
+  async mounted() {
+    let cyto = new cytoscape({
+      container: this.$refs.cytoRef
+    });
+    this.cyto = cyto;
+  },
   computed: {},
   watch: {
     content: {
@@ -46,5 +52,8 @@ export default {
 </script>
 
 <style scoped>
-
+#cyto {
+  height: 6em;
+  width: 100%;
+}
 </style>
