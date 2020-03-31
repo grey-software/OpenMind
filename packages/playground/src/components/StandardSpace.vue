@@ -53,7 +53,7 @@ export default {
 
 <style scoped>
 #cyto {
-  height: 6em;
+  height: 100%;
   width: 100%;
 }
 </style>

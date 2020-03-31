@@ -25,7 +25,7 @@ const StandardSpaceWithContent = content => () => ({
       }
     },
   },
-  template: `<StandardSpace :content="content" />`,
+  template: `<StandardSpace :content="content" style="height:100vh;width:100vw"/>`,
 })
 
 export const emptyStandardSpace = StandardSpaceWithContent({})
