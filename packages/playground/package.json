@@ -24,6 +24,9 @@
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "roboto-fontface": "*",
+    "tiptap": "^1.26.6",
+    "tiptap-extensions": "^1.28.6",
+    "tiptap-vuetify": "^2.13.2",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.5",
     "vue-class-component": "^7.0.2",
@@ -79,7 +82,9 @@
       "eslint:recommended",
       "@vue/typescript"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": 0
+    },
     "parserOptions": {
       "parser": "@typescript-eslint/parser"
     },
