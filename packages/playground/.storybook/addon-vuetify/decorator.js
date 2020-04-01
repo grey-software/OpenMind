@@ -10,6 +10,10 @@ import deepmerge from 'deepmerge'
 import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.min.css'
 
+// Vuetify Tiptap
+import { TiptapVuetifyPlugin } from 'tiptap-vuetify'
+import 'tiptap-vuetify/dist/main.css'
+
 Vue.use(Vuetify)
 
 export default makeDecorator({
@@ -24,6 +28,11 @@ export default makeDecorator({
       rtl,
       theme: { dark },
     }, parameters))
+
+    Vue.use(TiptapVuetifyPlugin, {
+      vuetify,
+      iconsGroup: 'mdi'
+    })
     const WrappedComponent = storyFn(context)
 
     return Vue.extend({

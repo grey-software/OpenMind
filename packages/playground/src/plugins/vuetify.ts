@@ -3,18 +3,22 @@ import Vuetify from 'vuetify/lib';
 
 Vue.use(Vuetify);
 
-export default new Vuetify({
+const vuetify = new Vuetify({
   theme: {
-    themes: {
-      light: {
-        primary: '#ee44aa',
-        secondary: '#424242',
-        accent: '#82B1FF',
-        error: '#FF5252',
-        info: '#2196F3',
-        success: '#4CAF50',
-        warning: '#FFC107'
-      },
-    },
+    primary: '#CCCCCC',
   },
 });
+
+import { TiptapVuetifyPlugin } from 'tiptap-vuetify'
+// don't forget to import CSS styles
+import 'tiptap-vuetify/dist/main.css'
+
+Vue.use(TiptapVuetifyPlugin, {
+    // the next line is important! You need to provide the Vuetify Object to this place.
+    vuetify, // same as "vuetify: vuetify"
+    // optional, default to 'md' (default vuetify icons before v2.0.0)
+    iconsGroup: 'mdi'
+})
+
+export default vuetify;
+
