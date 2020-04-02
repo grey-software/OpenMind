@@ -19,8 +19,19 @@ interface StandardSpaceData {
 }
 export default {
   methods: {
-    updateSpace: () => {
-
+    addNode(contentId, {position}) {
+      this.cyto.add({
+        data: {id: contentId},
+        position
+      })
+    },
+    updateSpace() {
+      for (let [contentId, content] of Object.entries(this.content.data.content)) {
+        this.addNode(contentId, content);
+      }
+    },
+    load() {
+      this.updateSpace();
     }
   },
   async mounted() {
@@ -28,6 +39,7 @@ export default {
       container: this.$refs.cytoRef
     });
     this.cyto = cyto;
+    this.load();
   },
   computed: {},
   watch: {

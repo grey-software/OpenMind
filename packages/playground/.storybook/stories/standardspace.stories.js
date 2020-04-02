@@ -29,3 +29,18 @@ const StandardSpaceWithContent = content => () => ({
 })
 
 export const emptyStandardSpace = StandardSpaceWithContent({})
+
+export const standardSpaceWithSingleNode = StandardSpaceWithContent({
+  'test': {
+    position: {x: 124, y: 27},
+  },
+});
+
+export const standardSpaceWithTwoNode = StandardSpaceWithContent({
+  'test': {
+    position: {x: 124, y: 27},
+  },
+  'test2': {
+    position: {x: 304, y: 27},
+  },
+});
