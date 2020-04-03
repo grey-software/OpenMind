@@ -9,6 +9,9 @@
 import _ from "lodash";
 import cytoscape from 'cytoscape';
 
+import { Subject, ReplaySubject, fromEvent, iif, of } from 'rxjs';
+import { delay, throttleTime, filter, timeInterval, map, mergeMap } from 'rxjs/operators';
+
 import ContentMeta from "../types/ContentMeta";
 
 interface StandardSpaceData {
@@ -31,18 +34,27 @@ export default {
       }
     },
     bindHandlers() {
-      this.cyto.on('tap', 'node', e=>console.log(e));
-      this.cyto.on('tap', 'edge', e=>console.log(e));
+      console.log(this)
+      this.handlers.backgroundDoubleTap = this.handlers.backgroundTap.pipe(
+        timeInterval(),
+        filter(i => i.interval < 250),
+        map(i => i.value),
+      );
+
+      this.cyto.on('tap', 'node', e => this.handlers.nodeTap.next(e));
+      this.cyto.on('tap', 'edge', e => this.handlers.edgeTap.next(e));
       this.cyto.on('tap', e => {
         if (e.target !== this.cyto) return;
-        console.log(e)
+        this.handlers.backgroundTap.next(e);
       });
+      for (let handler in this.handlers) {
+        this.handlers[handler].subscribe(e => console.log(handler))
+      }
     },
     load() {
       this.updateSpace();
       this.bindHandlers();
       this.cyto.center();
-      console.log(this.cyto)
     },
     unload() {
       this.cyto.elements().remove();
@@ -53,6 +65,17 @@ export default {
       container: this.$refs.cytoRef
     });
     this.cyto = cyto;
+    this.handlers = {
+      nodeTap: new Subject(),
+      nodeMouseover: new Subject(),
+      nodeMouseout: new Subject(),
+      nodesMove: new Subject(),
+      edgeTap: new Subject(),
+      edgeMouseover: new Subject(),
+      backgroundTap: new Subject(),
+      backgroundDoubleTap: new Subject(),
+      backgroundContextTap: new Subject(),
+    },
     this.load();
   },
   computed: {},
