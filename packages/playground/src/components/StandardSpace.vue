@@ -32,7 +32,12 @@ export default {
     },
     load() {
       this.updateSpace();
-    }
+      this.cyto.center();
+      console.log(this.cyto)
+    },
+    unload() {
+      this.cyto.data();
+    },
   },
   async mounted() {
     let cyto = new cytoscape({

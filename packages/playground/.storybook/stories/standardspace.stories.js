@@ -36,7 +36,7 @@ export const standardSpaceWithSingleNode = StandardSpaceWithContent({
   },
 });
 
-export const standardSpaceWithTwoNode = StandardSpaceWithContent({
+export const standardSpaceWithTwoNodes = StandardSpaceWithContent({
   'test': {
     position: {x: 124, y: 27},
   },
