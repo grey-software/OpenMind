@@ -30,13 +30,22 @@ export default {
         this.addNode(contentId, content);
       }
     },
+    bindHandlers() {
+      this.cyto.on('tap', 'node', e=>console.log(e));
+      this.cyto.on('tap', 'edge', e=>console.log(e));
+      this.cyto.on('tap', e => {
+        if (e.target !== this.cyto) return;
+        console.log(e)
+      });
+    },
     load() {
       this.updateSpace();
+      this.bindHandlers();
       this.cyto.center();
       console.log(this.cyto)
     },
     unload() {
-      this.cyto.data();
+      this.cyto.elements().remove();
     },
   },
   async mounted() {
