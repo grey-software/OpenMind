@@ -34,7 +34,17 @@ export default {
       }
     },
     bindHandlers() {
-      console.log(this)
+      this.handlers = {
+        nodeTap: new Subject(),
+        nodeMouseover: new Subject(),
+        nodeMouseout: new Subject(),
+        nodesMove: new Subject(),
+        edgeTap: new Subject(),
+        edgeMouseover: new Subject(),
+        backgroundTap: new Subject(),
+        backgroundContextTap: new Subject(),
+        backgroundDoubleTap: new Subject(),
+      },
       this.handlers.backgroundDoubleTap = this.handlers.backgroundTap.pipe(
         timeInterval(),
         filter(i => i.interval < 250),
@@ -47,8 +57,29 @@ export default {
         if (e.target !== this.cyto) return;
         this.handlers.backgroundTap.next(e);
       });
+      this.cyto.on('cxttap', e => {
+        if (e.target == e.cy) this.handlers.backgroundContextTap.next(e);
+      });
+      this.cyto.on('dragfree', 'node', e => this.handlers.nodesMove.next(e));
+
+      this.cyto.on('mouseover', 'node', e => this.handlers.nodeMouseover.next(e));
+      this.cyto.on('mouseout', 'node', e => this.handlers.nodeMouseout.next(e));
+      this.handlers.nodeMouseover.subscribe(e => {
+        this.cyto.container().style.cursor = 'pointer';
+      });
+      this.handlers.nodeMouseout.subscribe(e => {
+        this.cyto.container().style.cursor = '';
+      });
+
       for (let handler in this.handlers) {
-        this.handlers[handler].subscribe(e => console.log(handler))
+        // console.log(handler)
+        this.handlers[handler].subscribe(e => console.log(e))
+      }
+
+    },
+    unbindHandlers() {
+      for (let handler in this.handlers) {
+        delete this.handlers[handler];
       }
     },
     load() {
@@ -57,6 +88,7 @@ export default {
       this.cyto.center();
     },
     unload() {
+      this.unbindHandlers();
       this.cyto.elements().remove();
     },
   },
@@ -65,17 +97,7 @@ export default {
       container: this.$refs.cytoRef
     });
     this.cyto = cyto;
-    this.handlers = {
-      nodeTap: new Subject(),
-      nodeMouseover: new Subject(),
-      nodeMouseout: new Subject(),
-      nodesMove: new Subject(),
-      edgeTap: new Subject(),
-      edgeMouseover: new Subject(),
-      backgroundTap: new Subject(),
-      backgroundDoubleTap: new Subject(),
-      backgroundContextTap: new Subject(),
-    },
+    this.handlers = {};
     this.load();
   },
   computed: {},
