@@ -70,12 +70,6 @@ export default {
       this.handlers.nodeMouseout.subscribe(e => {
         this.cyto.container().style.cursor = '';
       });
-
-      for (let handler in this.handlers) {
-        // console.log(handler)
-        this.handlers[handler].subscribe(e => console.log(e))
-      }
-
     },
     unbindHandlers() {
       for (let handler in this.handlers) {
