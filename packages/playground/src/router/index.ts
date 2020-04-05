@@ -1,14 +1,26 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Landing from '../views/Landing.vue'
+import LoadDatabase from '../views/LoadDatabase.vue'
+import Application from '../views/Application.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'landing',
+    component: Landing,
+  },
+  {
+    path: '/load',
+    name: 'loadDatabase',
+    component: LoadDatabase,
+  },
+  {
+    path: '/app',
+    name: 'application',
+    component: Application,
   },
   // {
   //   path: '/about',
