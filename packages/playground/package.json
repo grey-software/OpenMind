@@ -23,6 +23,8 @@
     "core-js": "^3.4.4",
     "cytoscape": "^3.14.1",
     "lodash": "^4.17.15",
+    "mobx": "^5.15.4",
+    "mobx-vue": "^2.0.10",
     "moment": "^2.24.0",
     "roboto-fontface": "*",
     "rxjs": "^6.5.5",
