@@ -39,8 +39,24 @@ export default {
     },
     clickNode(e) {
       let node = e.target;
-      let {id} = node.data();
-      this.state.db.loadContentById(id);
+      if (e.originalEvent.ctrlKey) {
+        this.linkNode(node)
+        e.preventDefault();
+        e.stopPropagation();
+      } else {
+        let {id} = node.data();
+        this.state.db.loadContentById(id);
+      }
+    },
+    linkNode(node) {
+      /**
+       * If a node is activated, link it. If no node's currently activated, activate it
+       */
+      if (this.activatedNodeId) {
+        this.addEdge({source: this.activatedNodeId, target: node.id(), metadata: {}});
+      } else {
+        this.activatedNodeId = node.id();
+      }
     },
     moveNode(e) {
       let contentPositions = this.cyto.nodes().map(n => ({
@@ -168,6 +184,11 @@ export default {
       }),
     }
   },
+  data() {
+    return {
+      activatedNodeId: null,
+    }
+  }
 };
 </script>
 
