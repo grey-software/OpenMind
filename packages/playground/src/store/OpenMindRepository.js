@@ -90,6 +90,7 @@ class OpenMindRepository {
     this.currentSpace = null;
   }
   loadContent(content) {
+    if (this._loadedContent.find(c => c.id == content.id)) return;
     this._loadedContent.push(content);
   }
 }

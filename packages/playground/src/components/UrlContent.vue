@@ -10,11 +10,17 @@
       <v-card-actions>
         <v-spacer></v-spacer>
 
-        <v-btn text rounded color="primary" class="mr-2" @click="navigateToUrl">
+        <v-btn text rounded color="secondary" class="mr-2" @click="navigateToUrl">
           <v-icon class="mr-2">mdi-web</v-icon>Visit
         </v-btn>
       </v-card-actions>
     </v-card>
+    <v-skeleton-loader
+      v-else
+      class="mx-auto"
+      width="300"
+      type="card"
+    ></v-skeleton-loader>
   </div>
 </template>
 

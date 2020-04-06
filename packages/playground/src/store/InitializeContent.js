@@ -15,7 +15,7 @@ export function BestContentType (content) {
   if (types.has('StandardSpace')) return StandardSpace;
 
   if (types.has('Text')) return Text;
-  if (types.has('URLEntity')) return URLEntity;
+  if (types.has('URL')) return URLEntity;
   if (types.has('VideoYouTube')) return VideoYouTube;
 }
 

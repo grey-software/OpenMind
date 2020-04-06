@@ -1,7 +1,10 @@
 import GenericEntity from './GenericEntity.component';
 
+import UrlContent from '@/components/UrlContent';
+
+// URL is reserved
 export default class URLEntity extends GenericEntity {
-  // URL is reserved
+  component = UrlContent;  
   constructor(config) {
     // validate config against URLSchema
     super(config);

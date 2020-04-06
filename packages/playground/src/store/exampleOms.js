@@ -2,14 +2,24 @@ export default {
   id: "example-oms",
   name: "Example OpenMind Repository",
   content: {
-    'content-1': {
+    'text-1': {
       meta: {
         is: ['Text'],
-        id: 'content-1',
+        id: 'text-1',
         creationTime: 1586155025575
       },
       data: {
         text: "Hello world."
+      }
+    },
+    'url-1': {
+      meta: {
+        is: ['URL'],
+        id: 'url-1',
+        creationTime: 1586155025575
+      },
+      data: {
+        url: "https://blog.ycombinator.com/why-toys/"
       }
     },
     'space-1': {
