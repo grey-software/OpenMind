@@ -7,6 +7,7 @@ class OpenMindRepository {
     // initialize OpenMindRepository
       // initialize content and spaces
       // load default space
+    this._config = config;
     this.lastUpdated = Date.now();
   }
   get content() {

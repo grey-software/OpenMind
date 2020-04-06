@@ -15,6 +15,11 @@ export default observer({
       state: AppState,
     }
   },
+  mounted() {
+    if (!this.state.db) {
+      this.$router.push('load');
+    }
+  },
   name: 'landing',
   components: {
   }
