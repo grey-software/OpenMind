@@ -12,6 +12,8 @@ import { delay, throttleTime, filter, timeInterval, map, mergeMap } from 'rxjs/o
 
 import ContentMeta from "../types/ContentMeta";
 
+import AppState from '@/store';
+
 interface StandardSpaceData {
   meta: ContentMeta;
   data: {
@@ -20,15 +22,20 @@ interface StandardSpaceData {
 }
 export default {
   methods: {
-    addNode(contentId, {position}) {
+    addNode(content, {position}) {
       this.cyto.add({
-        data: {id: contentId},
-        position
+        data: {
+          id: content.id, 
+          label: content.label,
+        },
+        position,
       })
     },
     updateSpace() {
-      for (let [contentId, content] of Object.entries(this.content.data.content)) {
-        this.addNode(contentId, content);
+      for (let [contentId, contentSpace] of Object.entries(this.content.data.content)) {
+        let content = this.state.db.content[contentId];
+        if (!content) continue;
+        this.addNode(content, contentSpace);
       }
     },
     bindHandlers() {
@@ -86,8 +93,17 @@ export default {
   },
   async mounted() {
     let cyto = new cytoscape({
-      container: this.$refs.cytoRef
+      container: this.$refs.cytoRef,
     });
+    cyto.style([
+      {
+        selector: 'node',
+        style: {
+          label: 'data(label)'
+        }
+      }
+    ]);
+    console.log(cyto)
     this.cyto = cyto;
     this.handlers = {};
     this.load();
@@ -109,6 +125,7 @@ export default {
   },
   data() {
     return {
+      state: AppState,
     };
   }
 };

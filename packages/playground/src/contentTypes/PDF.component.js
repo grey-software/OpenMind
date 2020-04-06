@@ -20,6 +20,10 @@ export default class PDF extends GenericEntity {
     this._config.data.url = _url;
   }
 
+  get label() {
+    return this._config.data.url;
+  }
+
   get data() {
     return {
       url: this.url,
