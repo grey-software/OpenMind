@@ -1,6 +1,6 @@
 import { action, computed, observable } from "mobx";
 
-import * as ContentTypes from '../contentTypes';
+import { InitializeContent } from './InitializeContent';
 
 class OpenMindRepository {
   lastUpdated = null;
@@ -14,7 +14,8 @@ class OpenMindRepository {
   }
   initializeContent() {
     for (let id in this._config.content) {
-      this._content[id] = this._config.content[id];
+      let content = this._config.content[id];
+      this._content[id] = InitializeContent(content);
     }
   }
 
