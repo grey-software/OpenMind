@@ -8,17 +8,33 @@ class OpenMindRepository {
       // initialize content and spaces
       // load default space
     this._config = config;
+    this._content = {};
     this.lastUpdated = Date.now();
+    this.initializeContent();
+  }
+  initializeContent() {
+    for (let id in this._config.content) {
+      this._content[id] = this._config.content[id];
+    }
   }
   get id() {
+    /** Gets OpenMind repository id */
     return this._config.id;
   }
   get name() {
+    /** Gets OpenMind repository name */
     return this._config.name;
   }
+  set name(_name) {
+    /** Sets OpenMind repository name */
+    this._config.name = _name;
+  }
   get content() {
-    return {} //temp
-    // return a map of {id: <GenericEntityInterface>}
+    /**
+     * Returns a map of id: Content
+     * @return {id: <GenericEntityInterface>}
+     */
+    return this._content;
   }
   createContent(content) {
     /**
