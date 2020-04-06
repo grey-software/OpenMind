@@ -2,7 +2,7 @@ import { action, computed, observable } from "mobx";
 
 import OpenMindRepository from './OpenMindRepository';
 
-export default class OpenMindApp {
+class OpenMindApp {
   db = null;
   loadOpenMind = {
     example: () => {
@@ -23,10 +23,13 @@ export default class OpenMindApp {
        * Loads an OpenMind from a json file
        */
     },
-    localStore: () => {
+    localStorage: () => {
       /** 
        * Loads an OpenMind from localStore 
        */
     }
   }
 }
+
+// OpenMindApp is a singleton
+export default new OpenMindApp();

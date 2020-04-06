@@ -36,6 +36,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import AppState from "./store";
 
 export default Vue.extend({
   name: 'App',
@@ -44,7 +45,10 @@ export default Vue.extend({
   },
 
   data: () => ({
-    //
+    state: AppState,
   }),
+  mounted() {
+    window.AppState = AppState;
+  }
 });
 </script>

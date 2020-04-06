@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    {{state.test}}
+    
   </div>
 </template>
 
@@ -12,11 +12,8 @@ import AppState from "../store";
 export default observer({
   data() {
     return {
-      state: new AppState(),
+      state: AppState,
     }
-  },
-  mounted() {
-    console.log(this.state)
   },
   name: 'landing',
   components: {
