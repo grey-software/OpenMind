@@ -4,23 +4,23 @@ class OpenMindRepository {
   lastUpdated = null;
   currentSpace = null;
   constructor(config) {
-    // initialize OpenMindRepository
-      // initialize content and spaces
-      // load default space
     this._config = config;
     this._content = {};
     this.lastUpdated = Date.now();
     this.initializeContent();
+    // load default space
   }
   initializeContent() {
     for (let id in this._config.content) {
       this._content[id] = this._config.content[id];
     }
   }
+
   get id() {
     /** Gets OpenMind repository id */
     return this._config.id;
   }
+
   get name() {
     /** Gets OpenMind repository name */
     return this._config.name;
@@ -29,6 +29,7 @@ class OpenMindRepository {
     /** Sets OpenMind repository name */
     this._config.name = _name;
   }
+
   get content() {
     /**
      * Returns a map of id: Content
@@ -36,6 +37,22 @@ class OpenMindRepository {
      */
     return this._content;
   }
+  getContentByType(type) {
+    let content = {}
+    for (let id in this._content) {
+      let c = this._content[id];
+      if (c.meta.is.indexOf(type) !== -1) content[id] = c;
+    }
+    return content;
+  }
+  get spaces() {
+    /**
+     * Returns a map of id: Space
+     * @return {id: <GenericSpaceInterface>}
+     */
+    return this.getContentByType('Space');
+  }
+
   createContent(content) {
     /**
      * @param {GenericEntityInterface} content
@@ -52,14 +69,6 @@ class OpenMindRepository {
     if (!this.currentSpace) return;
     this.currentSpace.unload();
     this.currentSpace = null;
-  }
-
-  get spaces() {
-    return {} //temp
-    // return a map of {id: <GenericSpaceInterface>}
-  }
-  getContentByType(type) {
-    // return a map of {id: <GenericEntityInterface>}
   }
 }
 
