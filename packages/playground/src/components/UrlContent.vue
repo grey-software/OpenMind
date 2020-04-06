@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card v-if="loaded" class="mx-auto" max-width="344">
-      <v-img :src="ogData.twitterImage.url" height="200px" contain></v-img>
+      <v-img :src="ogData && ogData.twitterImage && ogData.twitterImage.url" height="200px" contain></v-img>
 
       <v-card-title>{{ogData.ogTitle}}</v-card-title>
 
