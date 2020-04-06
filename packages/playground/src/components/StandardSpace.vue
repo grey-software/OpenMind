@@ -12,8 +12,6 @@ import { delay, throttleTime, filter, timeInterval, map, mergeMap } from 'rxjs/o
 
 import ContentMeta from "../types/ContentMeta";
 
-import AppState from '@/store';
-
 interface StandardSpaceData {
   meta: ContentMeta;
   data: {
@@ -128,13 +126,19 @@ export default {
     content: {
       type: Object as () => StandardSpaceData,
       default: ""
+    },
+    state: {
+      type: Object,
+      default: () => ({
+        mock: true,
+        db: {
+          content: {
+            test: {}
+          }
+        }
+      }),
     }
   },
-  data() {
-    return {
-      state: AppState,
-    };
-  }
 };
 </script>
 

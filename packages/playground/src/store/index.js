@@ -13,6 +13,12 @@ class OpenMindApp {
        */
       this.db = new OpenMindRepository(exampleOms);
     },
+    json: (json) => {
+      /**
+       * Loads an OpenMind repository from a json object.
+       */
+      this.db = new OpenMindRepository(json);
+    },
     github: () => {
       /**
        * Loads an OpenMind repository from GitHub

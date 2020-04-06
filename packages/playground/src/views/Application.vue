@@ -2,7 +2,7 @@
   <div class="application" v-if="state.db">
     <div class="layers">
       <div v-for="layer in state.db.layers" :key="layer.id" class="layer">
-        <component :is="layer.component" :content="layer" :style="layer.componentStyle" />
+        <component :is="layer.component" :content="layer" :style="layer.componentStyle" :state="state" />
       </div>
     </div>
   </div>
