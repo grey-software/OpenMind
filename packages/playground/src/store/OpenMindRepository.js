@@ -80,20 +80,32 @@ class OpenMindRepository {
     this.loadSpace(space)
   }
   loadSpace(space) {
-    // precondition: space is an instance of a class that implements GenericSpace
+    /**
+     * Loads a space into view.
+     */
+    if (this.currentSpace) this.unloadSpace();
     space.load();
     this.currentSpace = space;
   }
   unloadSpace() {
+    /**
+     * Unloads the current space;
+     */
     if (!this.currentSpace) return;
     this.currentSpace.unload();
     this.currentSpace = null;
   }
   loadContent(content) {
+    /**
+     * Loads content into a viewer.
+     */
     if (this._loadedContent.find(c => c.id == content.id)) return;
     this._loadedContent.push(content);
   }
   loadContentById(contentId) {
+    /**
+     * Loads content given its contentId
+     */
     let content = this.content[contentId];
     if (!content) return;
     this.loadContent(content);
