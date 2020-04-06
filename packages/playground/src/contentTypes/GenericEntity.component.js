@@ -1,10 +1,17 @@
 export default class GenericEntity {
   constructor(config) {
     // validate config against GenericEntitySchema
+    this._config = config;
   }
-  get id() {}
-  get authors() {}
-  get creationTime() {}
+  get id() {
+    return this._config.meta.id;
+  }
+  get authors() {
+    return this._config.meta.authors;
+  }
+  get creationTime() {
+    return this._config.meta.creationTime;
+  }
 
   get type() {
     return [];

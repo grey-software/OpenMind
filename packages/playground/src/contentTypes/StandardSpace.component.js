@@ -1,8 +1,9 @@
 import GenericSpace from './GenericSpace.component';
 
 export default class StandardSpace extends GenericSpace {
-  constructor() {
+  constructor(config) {
     // validate config against StandardSpaceSchema
+    super(config);
   }
   get type() {
     return ['Space', 'StandardSpace'];
@@ -17,6 +18,7 @@ export default class StandardSpace extends GenericSpace {
       }
     }
      */
+    return this._config.data.content;
   }
   set content(_content) {
     // sets all content data

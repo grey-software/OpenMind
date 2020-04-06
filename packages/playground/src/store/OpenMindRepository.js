@@ -1,5 +1,7 @@
 import { action, computed, observable } from "mobx";
 
+import * as ContentTypes from '../contentTypes';
+
 class OpenMindRepository {
   lastUpdated = null;
   currentSpace = null;

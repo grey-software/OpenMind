@@ -3,6 +3,7 @@ import GenericEntity from './GenericEntity.component';
 export default class GenericSpace extends GenericEntity {
   constructor(config) {
     // validate config against GenericSpaceSchema
+    super(config);
   }
   get type() {
     return ['Space'];
