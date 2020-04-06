@@ -1,6 +1,9 @@
 import GenericEntity from './GenericEntity.component';
 
+import TextContent from '@/components/TextContent';
+
 export default class Text extends GenericEntity {
+  component = TextContent;
   constructor(config) {
     super(config);
   }
