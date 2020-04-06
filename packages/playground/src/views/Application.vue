@@ -1,7 +1,9 @@
 <template>
   <div class="application" v-if="state.db">
-    <div v-for="layer in state.db.layers" :key="layer.id">
-      <component :is="layer.component" :content="layer" :style="layer.componentStyle" />
+    <div class="layers">
+      <div v-for="layer in state.db.layers" :key="layer.id" class="layer">
+        <component :is="layer.component" :content="layer" :style="layer.componentStyle" />
+      </div>
     </div>
   </div>
 </template>
@@ -23,3 +25,9 @@ export default {
   }),
 }
 </script>
+
+<style scoped>
+.layer {
+  position: fixed;
+}
+</style>

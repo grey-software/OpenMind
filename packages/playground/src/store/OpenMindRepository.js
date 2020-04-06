@@ -8,6 +8,7 @@ class OpenMindRepository {
   constructor(config) {
     this._config = config;
     this._content = {};
+    this._loadedContent = [];
     this.lastUpdated = Date.now();
     this.initializeContent();
     // load default space
@@ -57,10 +58,10 @@ class OpenMindRepository {
   }
 
   get layers() {
-    if (this.currentSpace) {
-      return [this.currentSpace];
-    }
-    return [];
+    let layers = []
+    if (this.currentSpace) layers.push(this.currentSpace)
+    layers.push(...this._loadedContent);
+    return layers;
   }
 
   get currentSpaceName() {
@@ -87,6 +88,9 @@ class OpenMindRepository {
     if (!this.currentSpace) return;
     this.currentSpace.unload();
     this.currentSpace = null;
+  }
+  loadContent(content) {
+    this._loadedContent.push(content);
   }
 }
 
