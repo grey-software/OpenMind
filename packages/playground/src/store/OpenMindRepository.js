@@ -11,7 +11,7 @@ class OpenMindRepository {
     this._loadedContent = [];
     this.lastUpdated = Date.now();
     this.initializeContent();
-    // load default space
+    this.loadDefaultSpace();
   }
   initializeContent() {
     for (let id in this._config.content) {
@@ -32,6 +32,10 @@ class OpenMindRepository {
   set name(_name) {
     /** Sets OpenMind repository name */
     this._config.name = _name;
+  }
+
+  get defaultSpace() {
+    return this._content[this._config.defaultSpace];
   }
 
   get content() {
@@ -66,7 +70,7 @@ class OpenMindRepository {
 
   get currentSpaceName() {
     if (!this.currentSpace) return '';
-    return this.currentSpace.id;
+    return this.currentSpace.name || this.currentSpace.id;
   }
 
   createContent(content) {
@@ -75,6 +79,7 @@ class OpenMindRepository {
      * Adds content to the repository. Content could be a space.
      */
   }
+
   changeSpace(space) {
     this.unloadSpace()
     this.loadSpace(space)
@@ -95,6 +100,13 @@ class OpenMindRepository {
     this.currentSpace.unload();
     this.currentSpace = null;
   }
+  loadDefaultSpace() {
+    /**
+     * Loads the default space, if one's configured.
+     */
+    if (this.defaultSpace) this.loadSpace(this.defaultSpace);
+  }
+
   loadContent(content) {
     /**
      * Loads content into a viewer.

@@ -15,6 +15,7 @@
           width="40"
         />
         {{state.db ? state.db.name : 'Open Mind'}}
+        {{(state.db && state.db.currentSpace) ? `/ ${state.db.currentSpaceName}`: ''}}
       </div>
       <v-spacer></v-spacer>
       <v-select 

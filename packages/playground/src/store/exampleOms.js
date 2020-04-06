@@ -1,6 +1,7 @@
 export default {
   id: "example-oms",
   name: "Example OpenMind Repository",
+  defaultSpace: "space-1",
   content: {
     'text-1': {
       meta: {
