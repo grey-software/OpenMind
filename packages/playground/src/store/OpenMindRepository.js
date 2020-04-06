@@ -87,11 +87,15 @@ class OpenMindRepository {
     return this.currentSpace.name || this.currentSpace.id;
   }
 
-  createContent(content) {
+  createContent(content, initialize) {
     /**
      * @param {GenericEntityInterface} content
+     * @param {boolean} initialize - Whether content needs to be initialized
      * Adds content to the repository. Content could be a space.
      */
+    if (initialize) content = InitializeContent(content);
+    this._content[content.id] = content;
+    return content;
   }
 
   changeSpace(space) {

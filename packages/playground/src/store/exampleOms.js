@@ -44,14 +44,14 @@ export default {
         content: {
           "url-1": {
             position: {
-              x: 124,
+              x: -124,
               y: 57,
             }
           },
           "pdf-1": {
             position: {
-              x: 194,
-              y: 17,
+              x: 94,
+              y: -17,
             }
           },
           "text-1": {
@@ -60,6 +60,12 @@ export default {
               y: 57,
             }
           },
+          "space-2": {
+            position: {
+              x: 200,
+              y: 200,
+            }
+          }
         },
         links: {
           'url-1': {'pdf-1': {}}
