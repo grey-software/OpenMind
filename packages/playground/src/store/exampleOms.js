@@ -40,12 +40,24 @@ export default {
       },
       data: {
         content: {
-          "content-1": {
+          "url-1": {
             position: {
               x: 124,
-              y: 27,
+              y: 57,
             }
-          }
+          },
+          "pdf-1": {
+            position: {
+              x: 194,
+              y: 17,
+            }
+          },
+          "text-1": {
+            position: {
+              x: 264,
+              y: 57,
+            }
+          },
         }
       }
     }
