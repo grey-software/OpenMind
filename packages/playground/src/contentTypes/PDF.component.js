@@ -2,12 +2,11 @@ import GenericEntity from './GenericEntity.component';
 
 import PdfContent from '@/components/PdfContent';
 
-// URL is reserved
 export default class PDF extends GenericEntity {
   component = PdfContent;
   componentStyle = "width:100vw"
   constructor(config) {
-    // validate config against URLSchema
+    // validate config against PDFSchema
     super(config);
   }
   get type() {

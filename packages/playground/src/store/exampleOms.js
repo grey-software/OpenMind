@@ -22,6 +22,16 @@ export default {
         url: "https://blog.ycombinator.com/why-toys/"
       }
     },
+    'pdf-1': {
+      meta: {
+        is: ['PDF'],
+        id: 'pdf-1',
+        creationTime: 1586155025575
+      },
+      data: {
+        url: "https://bitcoin.com/bitcoin.pdf"
+      }
+    },
     'space-1': {
       meta: {
         is: ['StandardSpace', 'Space'],

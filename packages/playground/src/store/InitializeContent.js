@@ -3,6 +3,7 @@ import * as ContentTypes from '../contentTypes';
 const {
   Text,
   URLEntity,
+  PDF,
   VideoYouTube,
   StandardSpace,
 } = ContentTypes
@@ -16,6 +17,7 @@ export function BestContentType (content) {
 
   if (types.has('Text')) return Text;
   if (types.has('URL')) return URLEntity;
+  if (types.has('PDF')) return PDF;
   if (types.has('VideoYouTube')) return VideoYouTube;
 }
 
