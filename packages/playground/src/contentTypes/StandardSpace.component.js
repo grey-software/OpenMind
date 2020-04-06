@@ -25,7 +25,10 @@ export default class StandardSpace extends GenericSpace {
     return this._config.data.content;
   }
   set content(_content) {
-    // sets all content data
+    /**
+     * Sets content spaces
+     */
+    this._config.data.content = _content;
   }
   
   get name() {

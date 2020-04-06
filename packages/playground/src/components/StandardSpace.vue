@@ -112,7 +112,17 @@ export default {
       {
         selector: 'node',
         style: {
-          label: 'data(label)'
+          label: 'data(label)',
+          shape: 'diamond',
+          borderWidth: '3px',
+          backgroundColor: '#eeeeee',
+          width: '15px',
+          height: '15px',
+          'text-halign': 'right',
+          'text-valign': 'center',
+          'text-margin-x': 5,
+          nodeDimensionsIncludeLabels: true,
+          'text-events': 'yes'
         }
       }
     ]);
@@ -154,5 +164,6 @@ export default {
 #cyto {
   height: 100%;
   width: 100%;
+  background: #eee;
 }
 </style>

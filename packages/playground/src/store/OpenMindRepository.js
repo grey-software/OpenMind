@@ -30,7 +30,7 @@ class OpenMindRepository {
       let keybindings = {
         'Escape': this.unloadAllContent,
       }
-      if (keybindings[e.key]) keybindings[e.key]();
+      if (keybindings[e.key]) keybindings[e.key].apply(this);
     })
   }
 
