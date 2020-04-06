@@ -29,6 +29,14 @@ export default {
         position,
       })
     },
+    addEdge({source, target, metadata}) {
+      this.cyto.add({
+        data: {
+          source,
+          target,
+        },
+      })
+    },
     clickNode(e) {
       let node = e.target;
       let {id} = node.data();
@@ -46,6 +54,9 @@ export default {
         let content = this.state.db.content[contentId];
         if (!content) continue;
         this.addNode(content, contentSpace);
+      }
+      for (let link of this.content.linksFlat) {
+        this.addEdge(link)
       }
     },
     bindHandlers() {
