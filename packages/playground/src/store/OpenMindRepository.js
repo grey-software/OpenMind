@@ -27,7 +27,10 @@ class OpenMindRepository {
      * Sets keybindings for OpenMind
      */
     this.appState.keyboardEvents.subscribe(e => {
-      if (e.key === 'Escape') this.unloadAllContent();
+      let keybindings = {
+        'Escape': this.unloadAllContent,
+      }
+      if (keybindings[e.key]) keybindings[e.key]();
     })
   }
 
@@ -122,8 +125,12 @@ class OpenMindRepository {
     /**
      * Loads content into a viewer.
      */
-    if (this._loadedContent.find(c => c.id == content.id)) return;
-    this._loadedContent.push(content);
+    if (content.type.indexOf('Space') === -1) {
+      if (this._loadedContent.find(c => c.id == content.id)) return;
+      this._loadedContent.push(content);
+    } else {
+      this.loadSpace(content);
+    }
   }
   loadContentById(contentId) {
     /**

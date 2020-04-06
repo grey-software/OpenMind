@@ -62,6 +62,24 @@ export default {
           },
         }
       }
+    },
+    'space-2': {
+      meta: {
+        is: ['StandardSpace', 'Space'],
+        id: 'space-2',
+        creationTime: 1586155025560,
+      },
+      data: {
+        name: 'New Space',
+        content: {
+          "space-1": {
+            position: {
+              x: 200,
+              y: 200,
+            }
+          }
+        }
+      }
     }
   }
 }
