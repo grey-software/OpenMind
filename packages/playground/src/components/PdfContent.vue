@@ -26,12 +26,21 @@
           </v-list-item-icon>
           <v-list-item-title>{{content.data.url}}</v-list-item-title>
         </v-list-item>
-        <v-list-item v-if="creationDate">
-          <v-list-item-icon>
-            <v-icon>mdi-clock</v-icon>
-          </v-list-item-icon>
-          <v-list-item-subtitle>{{creationDate}}</v-list-item-subtitle>
-        </v-list-item>
+        <div v-if="loadedMeta">
+          <v-list-item v-if="creationDate">
+            <v-list-item-icon>
+              <v-icon>mdi-clock</v-icon>
+            </v-list-item-icon>
+            <v-list-item-subtitle>{{creationDate}}</v-list-item-subtitle>
+          </v-list-item>
+        </div>
+        <div v-else>
+          <v-skeleton-loader
+            height="94"
+            width="280px"
+            type="list-item-two-line"
+          ></v-skeleton-loader>
+        </div>
       </div>
       <!--<div>Icons made by <a href="https://www.flaticon.com/authors/dimitry-miroliubov" title="Dimitry Miroliubov">Dimitry Miroliubov</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
       <v-list-item></v-list-item>
