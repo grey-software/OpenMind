@@ -56,13 +56,21 @@ class OpenMindRepository {
     return this.getContentByType('Space');
   }
 
+  get currentSpaceName() {
+    if (!this.currentSpace) return '';
+    return this.currentSpace.id;
+  }
+
   createContent(content) {
     /**
      * @param {GenericEntityInterface} content
      * Adds content to the repository. Content could be a space.
      */
   }
-
+  changeSpace(space) {
+    this.unloadSpace()
+    this.loadSpace(space)
+  }
   loadSpace(space) {
     // precondition: space is an instance of a class that implements GenericSpace
     space.load();

@@ -13,11 +13,17 @@
           transition="scale-transition"
           width="40"
         />
-        Open Mind
+        {{state.db ? state.db.name : 'Open Mind'}}
       </div>
       <v-spacer></v-spacer>
-      {{state.db ? state.db.name : ''}}
-
+      <v-select 
+        class="space-select"
+        v-if="state.db"
+        :items="Object.entries(state.db.spaces)"
+        item-text="0"
+        item-value="1"
+        @change="space=>state.db.changeSpace(space)"
+      />
       <!-- <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
@@ -33,6 +39,12 @@
     </v-content>
   </v-app>
 </template>
+
+<style>
+.space-select {
+  width: 5em;
+}
+</style>
 
 <script lang="ts">
 import Vue from 'vue';
