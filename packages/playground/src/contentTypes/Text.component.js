@@ -15,6 +15,20 @@ export default class Text extends GenericEntity {
     this._config.data.text = _text;
   }
 
+  get markdown() {
+    return this._config.data.markdown;
+  }
+  set markdown(_markdown) {
+    this._config.data.markdown = _markdown;
+  }
+
+  get wikitext() {
+    return this._config.data.wikitext;
+  }
+  set wikitext(_wikitext) {
+    this._config.data.wikitext = _wikitext;
+  }
+
   get links() {
     return [];
     // return an array of links.
@@ -24,6 +38,8 @@ export default class Text extends GenericEntity {
   get data() {
     return {
       text: this.text,
+      markdown: this.markdown,
+      wikitext: this.wikitext,
     };
   }
 }
