@@ -21,7 +21,7 @@
         class="space-select"
         v-if="state.db"
         :items="Object.entries(state.db.spaces)"
-        item-text="0"
+        item-text="1.name"
         item-value="1"
         @change="space=>state.db.changeSpace(space)"
       />

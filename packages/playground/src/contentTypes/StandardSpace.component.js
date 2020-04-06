@@ -27,12 +27,25 @@ export default class StandardSpace extends GenericSpace {
   set content(_content) {
     // sets all content data
   }
+  
+  get name() {
+    return this._config.data.name;
+  }
+  set name(_name) {
+    this._config.data.name = _name;
+  }
+
+  get label() {
+    return this.name;
+  }
+
   setContentById(id, content) {
     // sets content belonging to id
   }
   get data() {
     return {
-      content: this.content
+      content: this.content,
+      name: this.name,
     }
   }
   load() {

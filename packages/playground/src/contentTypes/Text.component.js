@@ -18,6 +18,12 @@ export default class Text extends GenericEntity {
     this._config.data.text = _text;
   }
 
+  get label() {
+    if (this.text && this.text.length <= 80) return this.text;
+    if (!this.text) return '';
+    return this.text.slice(0, 80);
+  }
+
   get markdown() {
     return this._config.data.markdown;
   }

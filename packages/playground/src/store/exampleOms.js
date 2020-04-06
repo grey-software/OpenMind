@@ -39,6 +39,7 @@ export default {
         creationTime: 1586155025560,
       },
       data: {
+        name: 'Default Space',
         content: {
           "url-1": {
             position: {
