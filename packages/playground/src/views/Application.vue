@@ -1,6 +1,8 @@
 <template>
-  <div class="application">
-    
+  <div class="application" v-if="state.db">
+    <div v-for="layer in state.db.layers" :key="layer.id">
+      <component :is="layer.component" :content="layer" :style="layer.componentStyle" />
+    </div>
   </div>
 </template>
 

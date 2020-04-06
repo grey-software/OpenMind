@@ -56,6 +56,13 @@ class OpenMindRepository {
     return this.getContentByType('Space');
   }
 
+  get layers() {
+    if (this.currentSpace) {
+      return [this.currentSpace];
+    }
+    return [];
+  }
+
   get currentSpaceName() {
     if (!this.currentSpace) return '';
     return this.currentSpace.id;
