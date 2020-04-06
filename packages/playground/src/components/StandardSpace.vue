@@ -31,6 +31,11 @@ export default {
         position,
       })
     },
+    clickNode(e) {
+      let node = e.target;
+      let {id} = node.data();
+      this.state.db.loadContentById(id);
+    },
     updateSpace() {
       for (let [contentId, contentSpace] of Object.entries(this.content.data.content)) {
         let content = this.state.db.content[contentId];
@@ -75,6 +80,8 @@ export default {
       this.handlers.nodeMouseout.subscribe(e => {
         this.cyto.container().style.cursor = '';
       });
+
+      this.handlers.nodeTap.subscribe(this.clickNode);
     },
     unbindHandlers() {
       for (let handler in this.handlers) {

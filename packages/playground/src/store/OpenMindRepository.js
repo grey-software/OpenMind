@@ -93,6 +93,11 @@ class OpenMindRepository {
     if (this._loadedContent.find(c => c.id == content.id)) return;
     this._loadedContent.push(content);
   }
+  loadContentById(contentId) {
+    let content = this.content[contentId];
+    if (!content) return;
+    this.loadContent(content);
+  }
 }
 
 export default OpenMindRepository;
