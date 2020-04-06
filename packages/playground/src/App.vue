@@ -15,8 +15,8 @@
         />
         Open Mind
       </div>
-
       <v-spacer></v-spacer>
+      {{state.db ? state.db.name : ''}}
 
       <!-- <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"

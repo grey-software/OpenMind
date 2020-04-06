@@ -2,6 +2,8 @@ import { action, computed, observable } from "mobx";
 
 import OpenMindRepository from './OpenMindRepository';
 
+import exampleOms from './exampleOms';
+
 class OpenMindApp {
   db = null;
   loadOpenMind = {
@@ -9,9 +11,7 @@ class OpenMindApp {
       /**
        * Loads an example repository, for debugging.
        */
-      this.db = new OpenMindRepository({
-
-      });
+      this.db = new OpenMindRepository(exampleOms);
     },
     github: () => {
       /**

@@ -10,6 +10,12 @@ class OpenMindRepository {
     this._config = config;
     this.lastUpdated = Date.now();
   }
+  get id() {
+    return this._config.id;
+  }
+  get name() {
+    return this._config.name;
+  }
   get content() {
     return {} //temp
     // return a map of {id: <GenericEntityInterface>}
