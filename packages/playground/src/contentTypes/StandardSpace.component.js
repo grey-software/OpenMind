@@ -30,6 +30,36 @@ export default class StandardSpace extends GenericSpace {
      */
     this._config.data.content = _content;
   }
+
+  get links() {
+    /**
+     * Return {
+     *  [source]: {[target]: {<metadata>}}
+     * }
+     */
+    return this._config.data.links;
+  }
+  set links(_links) {
+    this._config.data.links = _links;
+  }
+  get linksFlat() {
+    /**
+     * Returns flattened links as an array
+     */
+    let links = this.links;
+    let linksArray = [];
+    for (let sourceId in links) {
+      let targets = links[sourceId];
+      for (let targetId in targets) {
+        linksArray.push({
+          source: sourceId,
+          target: targetId,
+          metadata: targets[targetId],
+        });
+      }
+    }
+    return linksArray;
+  }
   
   get name() {
     return this._config.data.name;

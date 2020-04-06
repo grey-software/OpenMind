@@ -60,7 +60,10 @@ export default {
               y: 57,
             }
           },
-        }
+        },
+        links: {
+          'url-1': {'pdf-1': {}}
+        },
       }
     },
     'space-2': {
@@ -78,7 +81,8 @@ export default {
               y: 200,
             }
           }
-        }
+        },
+        links: {},
       }
     }
   }

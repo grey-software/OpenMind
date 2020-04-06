@@ -18,14 +18,25 @@
         {{(state.db && state.db.currentSpace) ? `/ ${state.db.currentSpaceName}`: ''}}
       </div>
       <v-spacer></v-spacer>
-      <v-select 
+      <div v-if="state.db">
+        <v-overflow-btn
+            class="space-select"
+            :items="Object.entries(state.db.spaces)"
+            :label="state.db.currentSpaceName"
+            editable
+            item-text="1.name"
+            item-value="1"
+            @change="space=>state.db.changeSpace(space)"
+          ></v-overflow-btn>
+      </div>
+      <!-- <v-select 
         class="space-select"
         v-if="state.db"
         :items="Object.entries(state.db.spaces)"
         item-text="1.name"
         item-value="1"
         @change="space=>state.db.changeSpace(space)"
-      />
+      /> -->
       <!-- <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
@@ -44,7 +55,7 @@
 
 <style>
 .space-select {
-  width: 5em;
+  width: 15em;
 }
 </style>
 
