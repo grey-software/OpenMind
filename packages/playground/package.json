@@ -28,6 +28,7 @@
     "moment": "^2.24.0",
     "roboto-fontface": "*",
     "rxjs": "^6.5.5",
+    "uuid": "^7.0.3",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.5",
     "vue-class-component": "^7.0.2",
