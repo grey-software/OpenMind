@@ -63,6 +63,7 @@ export default Vue.extend({
   }),
   mounted() {
     window.AppState = AppState;
+    window.addEventListener('keydown', e=>AppState.keyboardEvents.next(e));
   }
 });
 </script>

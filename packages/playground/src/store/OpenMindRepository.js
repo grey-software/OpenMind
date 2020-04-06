@@ -5,19 +5,30 @@ import { InitializeContent } from './InitializeContent';
 class OpenMindRepository {
   lastUpdated = null;
   currentSpace = null;
-  constructor(config) {
+  constructor(config, AppState) {
     this._config = config;
+    this.appState = AppState;
+
     this._content = {};
     this._loadedContent = [];
     this.lastUpdated = Date.now();
     this.initializeContent();
     this.loadDefaultSpace();
+    this.setKeybindings();
   }
   initializeContent() {
     for (let id in this._config.content) {
       let content = this._config.content[id];
       this._content[id] = InitializeContent(content);
     }
+  }
+  setKeybindings() {
+    /**
+     * Sets keybindings for OpenMind
+     */
+    this.appState.keyboardEvents.subscribe(e => {
+      if (e.key === 'Escape') this.unloadAllContent();
+    })
   }
 
   get id() {
@@ -121,6 +132,9 @@ class OpenMindRepository {
     let content = this.content[contentId];
     if (!content) return;
     this.loadContent(content);
+  }
+  unloadAllContent() {
+    this._loadedContent.pop();
   }
 }
 
