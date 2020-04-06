@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <div id="cyto" ref="cytoRef" />
-  </div>
+  <div id="cyto" ref="cytoRef" />
 </template>
 
 

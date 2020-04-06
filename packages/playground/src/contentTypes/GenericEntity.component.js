@@ -1,4 +1,6 @@
 export default class GenericEntity {
+  component = null;
+  componentStyle = '';
   constructor(config) {
     // validate config against GenericEntitySchema
     this._config = config;

@@ -1,6 +1,10 @@
 import GenericSpace from './GenericSpace.component';
 
+import StandardSpaceComponent from '@/components/StandardSpace';
+
 export default class StandardSpace extends GenericSpace {
+  component = StandardSpaceComponent;
+  componentStyle = "height:100vh;width:100vw";
   constructor(config) {
     // validate config against StandardSpaceSchema
     super(config);
