@@ -39,8 +39,19 @@ export default class StandardSpace extends GenericSpace {
     return this.name;
   }
 
-  setContentById(id, content) {
-    // sets content belonging to id
+  setContentById(id, contentSpace) {
+    this._config.data.content[id] = contentSpace;
+  }
+  setContentPositions(contentPositions) {
+    /**
+     * Repositions the content within the space
+     * contentPositions is an array containing {id, position: {x, y}}
+     */
+    for (let {id, position} of contentPositions) {
+      try {
+        this._config.data.content[id].position = position;
+      } catch (e) {console.error(e)}
+    }
   }
   get data() {
     return {

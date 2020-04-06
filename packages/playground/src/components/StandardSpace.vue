@@ -34,6 +34,13 @@ export default {
       let {id} = node.data();
       this.state.db.loadContentById(id);
     },
+    moveNode(e) {
+      let contentPositions = this.cyto.nodes().map(n => ({
+        id: n.id(),
+        position: n.position()
+      }));
+      this.content.setContentPositions(contentPositions);
+    },
     updateSpace() {
       for (let [contentId, contentSpace] of Object.entries(this.content.data.content)) {
         let content = this.state.db.content[contentId];
@@ -80,6 +87,7 @@ export default {
       });
 
       this.handlers.nodeTap.subscribe(this.clickNode);
+      this.handlers.nodesMove.subscribe(this.moveNode);
     },
     unbindHandlers() {
       for (let handler in this.handlers) {
